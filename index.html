@@ -1,139 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sujay Hub</title>
+<button onclick="shareWebsite()">📤 Share Website</button>
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,Helvetica,sans-serif;
+<script>
+function shareWebsite() {
+    if (navigator.share) {
+        navigator.share({
+            title: "SUJAY HUB",
+            text: "Check out my Gaming + Study website!",
+            url: "https://SUJAY-1209.github.io/Sujay/"
+        });
+    } else {
+        navigator.clipboard.writeText("https://SUJAY-1209.github.io/Sujay/");
+        alert("Website link copied! Share it with your friends.");
+    }
 }
-
-body{
-background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#6a11cb,#2575fc);
-background-size:400% 400%;
-animation:bg 12s ease infinite;
-color:white;
-text-align:center;
-overflow-x:hidden;
-}
-
-@keyframes bg{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-}
-
-header{
-padding:70px 20px;
-}
-
-header h1{
-font-size:60px;
-text-shadow:0 0 20px cyan;
-}
-
-header p{
-font-size:22px;
-margin-top:15px;
-color:#ddd;
-}
-
-.cards{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:30px;
-padding:30px;
-}
-
-.card{
-width:300px;
-background:rgba(255,255,255,0.12);
-backdrop-filter:blur(12px);
-border-radius:20px;
-padding:25px;
-box-shadow:0 0 20px rgba(0,255,255,.3);
-transition:.4s;
-}
-
-.card:hover{
-transform:translateY(-10px) scale(1.05);
-box-shadow:0 0 35px cyan;
-}
-
-.card h2{
-font-size:30px;
-margin-bottom:15px;
-}
-
-.card p{
-margin-bottom:20px;
-line-height:1.6;
-}
-
-.btn{
-display:inline-block;
-padding:12px 28px;
-background:#00e5ff;
-color:black;
-text-decoration:none;
-font-weight:bold;
-border-radius:30px;
-transition:.3s;
-}
-
-.btn:hover{
-background:#ffee58;
-transform:scale(1.1);
-}
-
-footer{
-margin-top:50px;
-padding:20px;
-background:rgba(0,0,0,.4);
-font-size:18px;
-}
-</style>
-</head>
-
-<body>
-
-<header>
-<h1>🚀 Sujay Hub</h1>
-<p>Gaming • Study • Notes</p>
-</header>
-
-<div class="cards">
-
-<div class="card">
-<h2>🎮 Gaming</h2>
-<p>Play fun browser games and enjoy your free time.</p>
-<a class="btn" href="gaming.html">Play Games</a>
-</div>
-
-<div class="card">
-<h2>📚 Study</h2>
-<p>Learn Class 6 CBSE chapters, notes, MCQs and more.</p>
-<a class="btn" href="study.html">Start Learning</a>
-</div>
-
-<div class="card">
-<h2>📝 Notes</h2>
-<p>Read notes and preview your study images.</p>
-<a class="btn" href="notes.html">Open Notes</a>
-</div>
-
-</div>
-
-<footer>
-⭐ Welcome to Sujay Hub ⭐<br>
-Made with ❤️ by Sujay
-</footer>
-
-</body>
-</html>
+</script>
