@@ -1,16 +1,2034 @@
-<button onclick="shareWebsite()">📤 Share Website</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SUJAY HUB</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+background:linear-gradient(-45deg,#000428,#004e92,#6a11cb,#2575fc,#00d4ff);
+background-size:500% 500%;
+animation:bg 15s ease infinite;
+overflow-x:hidden;
+color:white;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* Floating Glow */
+
+.circle{
+position:fixed;
+border-radius:50%;
+background:rgba(255,255,255,.15);
+animation:float 12s infinite linear;
+}
+
+.circle:nth-child(1){
+width:120px;
+height:120px;
+left:5%;
+top:10%;
+}
+
+.circle:nth-child(2){
+width:80px;
+height:80px;
+right:10%;
+top:25%;
+}
+
+.circle:nth-child(3){
+width:150px;
+height:150px;
+left:35%;
+bottom:10%;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-40px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+/* Header */
+
+header{
+padding:40px;
+text-align:center;
+}
+
+header h1{
+
+font-size:70px;
+text-shadow:
+0 0 15px cyan,
+0 0 30px cyan,
+0 0 60px blue;
+
+animation:glow 2s infinite alternate;
+
+}
+
+@keyframes glow{
+
+from{
+text-shadow:0 0 10px cyan;
+}
+
+to{
+text-shadow:0 0 35px white,
+0 0 60px cyan;
+}
+
+}
+
+header p{
+
+font-size:22px;
+margin-top:15px;
+opacity:.9;
+
+}
+
+/* Clock */
+
+#clock{
+
+width:220px;
+margin:25px auto;
+padding:15px;
+
+background:rgba(255,255,255,.15);
+
+backdrop-filter:blur(10px);
+
+border-radius:20px;
+
+font-size:28px;
+
+font-weight:bold;
+
+box-shadow:0 0 20px cyan;
+
+}
+
+/* Search */
+
+.search{
+
+display:flex;
+justify-content:center;
+margin:20px;
+
+}
+
+.search input{
+
+width:320px;
+
+padding:14px;
+
+border:none;
+
+border-radius:30px;
+
+font-size:17px;
+
+outline:none;
+
+}
+
+/* Buttons */
+
+.top-btns{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+margin:25px;
+
+}
+
+.top-btns button{
+
+padding:13px 25px;
+
+border:none;
+
+border-radius:30px;
+
+font-size:17px;
+
+cursor:pointer;
+
+background:cyan;
+
+font-weight:bold;
+
+transition:.3s;
+
+}
+
+.top-btns button:hover{
+
+transform:scale(1.1);
+
+background:yellow;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+
+<header>
+
+<h1>🚀 SUJAY HUB</h1>
+
+<p>Gaming • Study • Notes</p>
+
+<div id="clock"></div>
+
+<div class="search">
+
+<input type="text" placeholder="🔍 Search...">
+
+</div>
+
+<div class="top-btns">
+
+<button onclick="shareWebsite()">📤 Share</button>
+
+<button onclick="toggleMode()">🌙 Dark Mode</button>
+
+</div>
+
+</header>
 
 <script>
-function shareWebsite() {
-    if (navigator.share) {
-        navigator.share({
-            title: "SUJAY HUB",
-            text: "Check out my Gaming + Study website!",
-            url: "https://SUJAY-1209.github.io/Sujay/"
-        });
-    } else {
-        navigator.clipboard.writeText("https://SUJAY-1209.github.io/Sujay/");
-        alert("Website link copied! Share it with your friends.");
+
+function updateClock(){
+
+const now=new Date();
+
+document.getElementById("clock").innerHTML=now.toLocaleTimeString();
+
+}
+
+setInterval(updateClock,1000);
+
+updateClock();
+
+function shareWebsite(){
+
+if(navigator.share){
+
+navigator.share({
+
+title:"SUJAY HUB",
+
+text:"Check my website!",
+
+url:"https://SUJAY-1209.github.io/Sujay/"
+
+});
+
+}else{
+
+navigator.clipboard.writeText("https://SUJAY-1209.github.io/Sujay/");
+
+alert("Website copied!");
+
+}
+
+}
+
+function toggleMode(){
+
+document.body.classList.toggle("light");
+
+}
+
+</script><!-- PART 2 : SUJAY HUB CARDS + FEATURES -->
+
+<section class="cards">
+
+<div class="card">
+<h2>🎮 Gaming Zone</h2>
+<p>Play, explore and enjoy your favourite games.</p>
+<button>Enter Gaming</button>
+</div>
+
+<div class="card">
+<h2>📚 Study Zone</h2>
+<p>Learn new things, complete homework and improve skills.</p>
+<button>Start Learning</button>
+</div>
+
+<div class="card">
+<h2>📝 Notes Hub</h2>
+<p>Save important notes and study materials easily.</p>
+<button>Open Notes</button>
+</div>
+
+</section>
+
+
+<div class="tools">
+
+<button onclick="shareWebsite()">📤 Share Website</button>
+
+<input type="text" id="search" placeholder="🔍 Search SUJAY HUB...">
+
+</div>
+
+
+<script>
+
+function shareWebsite(){
+if(navigator.share){
+navigator.share({
+title:"SUJAY HUB",
+text:"Check out my cool website!",
+url:window.location.href
+});
+}
+else{
+alert("Copy website link and share!");
+}
+}
+
+
+document.getElementById("search").addEventListener("keyup",function(){
+
+let value=this.value.toLowerCase();
+
+document.querySelectorAll(".card").forEach(card=>{
+
+if(card.innerText.toLowerCase().includes(value)){
+card.style.display="block";
+}
+else{
+card.style.display="none";
+}
+
+});
+
+});
+
+</script><!-- PART 3 START -->
+
+<section class="features">
+
+    <div class="box">
+        <h2>🎮 Gaming Zone</h2>
+        <p>Play, explore and enjoy your gaming world.</p>
+        <button onclick="alert('Gaming Zone Coming Soon!')">
+            Enter Game
+        </button>
+    </div>
+
+
+    <div class="box">
+        <h2>📚 Study Hub</h2>
+        <p>Learn new things and improve your knowledge.</p>
+        <button onclick="alert('Study Tools Coming Soon!')">
+            Start Learning
+        </button>
+    </div>
+
+
+    <div class="box">
+        <h2>📝 My Notes</h2>
+        <p>Save your important school notes here.</p>
+        <button onclick="alert('Notes Section Coming Soon!')">
+            Open Notes
+        </button>
+    </div>
+
+</section>
+
+
+<div class="clock">
+    ⏰ Current Time:
+    <span id="time"></span>
+</div>
+
+
+<button class="share" onclick="shareWebsite()">
+📤 Share Website
+</button>
+
+
+<script>
+
+function showTime(){
+    let time = new Date();
+    document.getElementById("time").innerHTML =
+    time.toLocaleTimeString();
+}
+
+setInterval(showTime,1000);
+showTime();
+
+
+function shareWebsite(){
+
+if(navigator.share){
+
+navigator.share({
+title:"SUJAY HUB",
+text:"Check out my awesome website!",
+url:window.location.href
+});
+
+}
+
+else{
+
+alert("Copy website link and share with friends!");
+
+}
+
+}
+
+</script>
+
+<!-- PART 3 END --><!-- PART 4 START -->
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+}
+
+
+/* Premium glowing cards */
+
+.features{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+    margin-top:40px;
+}
+
+
+.box{
+    width:250px;
+    padding:25px;
+    background:rgba(255,255,255,0.08);
+    border-radius:20px;
+    text-align:center;
+    color:white;
+    box-shadow:0 0 20px cyan;
+    transition:0.4s;
+}
+
+
+.box:hover{
+    transform:translateY(-15px) scale(1.05);
+    box-shadow:0 0 40px #00ffff;
+}
+
+
+.box button{
+    padding:12px 20px;
+    border:none;
+    border-radius:25px;
+    background:#00ffff;
+    color:black;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+
+.box button:hover{
+    background:white;
+    box-shadow:0 0 20px white;
+}
+
+
+/* Search Bar */
+
+.search-box{
+    text-align:center;
+    margin:30px;
+}
+
+
+.search-box input{
+
+width:300px;
+padding:15px;
+border-radius:30px;
+border:none;
+outline:none;
+font-size:16px;
+
+}
+
+
+/* Neon Logo */
+
+.logo{
+
+font-size:45px;
+font-weight:bold;
+color:white;
+text-align:center;
+text-shadow:
+0 0 10px cyan,
+0 0 20px cyan,
+0 0 40px blue;
+
+animation: glow 2s infinite alternate;
+
+}
+
+
+@keyframes glow{
+
+from{
+text-shadow:0 0 10px cyan;
+}
+
+to{
+text-shadow:0 0 40px blue;
+}
+
+}
+
+
+/* Floating animation */
+
+.box{
+animation:float 3s infinite alternate;
+}
+
+
+@keyframes float{
+
+from{
+transform:translateY(0);
+}
+
+to{
+transform:translateY(-10px);
+}
+
+}
+
+
+</style>
+
+
+<div class="search-box">
+
+<input type="text" 
+placeholder="🔍 Search SUJAY HUB..."
+onkeyup="searchSite()">
+
+</div>
+
+
+<script>
+
+function searchSite(){
+
+let input=document.querySelector(".search-box input").value;
+
+if(input.length>0){
+
+console.log("Searching for: "+input);
+
+}
+
+}
+
+</script>
+
+
+<!-- PART 4 END --><!-- PART 5 START -->
+
+<style>
+
+/* Space Background */
+
+body{
+
+margin:0;
+background:
+radial-gradient(circle at top,#182848,#000000);
+overflow-x:hidden;
+
+}
+
+
+/* Stars */
+
+.star{
+
+position:fixed;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+animation:moveStars 8s linear infinite;
+
+}
+
+
+@keyframes moveStars{
+
+from{
+transform:translateY(-100vh);
+}
+
+to{
+transform:translateY(100vh);
+}
+
+}
+
+
+/* Welcome Text */
+
+.welcome{
+
+text-align:center;
+color:white;
+font-size:30px;
+margin-top:30px;
+animation:fade 2s infinite alternate;
+
+}
+
+
+@keyframes fade{
+
+from{
+opacity:0.5;
+}
+
+to{
+opacity:1;
+}
+
+}
+
+
+/* Loading Animation */
+
+.loader{
+
+width:70px;
+height:70px;
+border:8px solid rgba(255,255,255,0.2);
+border-top:8px solid cyan;
+border-radius:50%;
+margin:30px auto;
+animation:spin 1s linear infinite;
+
+}
+
+
+@keyframes spin{
+
+100%{
+transform:rotate(360deg);
+}
+
+}
+
+
+</style>
+
+
+<div class="welcome">
+🚀 Welcome To SUJAY HUB 🌌
+<p>Your Gaming + Study Universe</p>
+</div>
+
+
+<div class="loader"></div>
+
+
+
+<script>
+
+// Create stars
+
+for(let i=0;i<80;i++){
+
+let star=document.createElement("div");
+
+star.className="star";
+
+star.style.left=Math.random()*100+"%";
+
+star.style.animationDuration=
+(3+Math.random()*8)+"s";
+
+star.style.opacity=
+Math.random();
+
+document.body.appendChild(star);
+
+}
+
+</script>
+
+
+<!-- PART 5 END --><!-- PART 6 START -->
+
+<style>
+
+/* Glowing Cards */
+
+.card{
+    width:300px;
+    padding:25px;
+    margin:20px;
+    background:rgba(255,255,255,0.08);
+    border-radius:20px;
+    text-align:center;
+    color:white;
+    box-shadow:0 0 20px #00ffff;
+    backdrop-filter:blur(10px);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px) scale(1.05);
+    box-shadow:0 0 35px #ff00ff;
+}
+
+.card h2{
+    color:#00ffff;
+    text-shadow:0 0 15px #00ffff;
+}
+
+.card p{
+    color:#ddd;
+    font-size:16px;
+}
+
+
+/* Card Container */
+
+.cards{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-top:40px;
+}
+
+
+/* Buttons */
+
+.glow-btn{
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:#00ffff;
+    color:#000;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 0 20px #00ffff;
+    transition:0.3s;
+}
+
+.glow-btn:hover{
+    background:#ff00ff;
+    box-shadow:0 0 30px #ff00ff;
+}
+
+</style>
+
+<!-- PART 6 END --><!-- PART 7 START -->
+
+<section class="premium-box">
+
+<h2>🚀 Sujay Hub Premium Zone</h2>
+
+<p>
+Welcome to my world of Gaming 🎮, Study 📚 and Creativity ✨
+</p>
+
+<div class="buttons">
+<button onclick="alert('Gaming Mode Activated 🎮')">
+🎮 Gaming
+</button>
+
+<button onclick="alert('Study Mode Activated 📚')">
+📚 Study
+</button>
+
+<button onclick="alert('Notes Opening 📝')">
+📝 Notes
+</button>
+</div>
+
+</section>
+
+<style>
+
+.premium-box{
+    margin:40px auto;
+    padding:30px;
+    width:80%;
+    text-align:center;
+    border-radius:25px;
+    background:rgba(255,255,255,0.1);
+    backdrop-filter:blur(15px);
+    box-shadow:0 0 30px cyan;
+    color:white;
+}
+
+.premium-box h2{
+    font-size:35px;
+    text-shadow:0 0 15px cyan;
+}
+
+.premium-box p{
+    font-size:18px;
+}
+
+.buttons button{
+    margin:15px;
+    padding:15px 30px;
+    border:none;
+    border-radius:30px;
+    background:black;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    box-shadow:0 0 15px cyan;
+}
+
+.buttons button:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 30px magenta;
+}
+
+</style>
+
+<!-- PART 7 END -->/* ===== PART 8 : PREMIUM ANIMATIONS ===== */
+
+body {
+    animation: pageLoad 1.5s ease;
+}
+
+@keyframes pageLoad {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
     }
 }
-</script>
+
+/* Card Animation */
+.card {
+    transition: 0.4s;
+    animation: floatCard 3s infinite ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 0 30px cyan;
+}
+
+@keyframes floatCard {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+
+/* Button Glow */
+button {
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #00ffff;
+}
+
+
+/* Logo Animation */
+h1 {
+    animation: glowLogo 2s infinite alternate;
+}
+
+@keyframes glowLogo {
+    from {
+        text-shadow: 0 0 10px cyan;
+    }
+    to {
+        text-shadow: 0 0 35px blue, 0 0 50px cyan;
+    }
+}
+
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}<!-- ===== PART 9 : ANIMATED BACKGROUND ===== -->
+
+<div class="particles">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div><!-- ===== PART 10 : FOOTER ===== -->
+
+<footer>
+    <h3>🚀 SUJAY HUB</h3>
+    <p>Gaming 🎮 | Study 📚 | Creativity ✨</p>
+    <p>© 2026 SUJAY HUB. All Rights Reserved.</p>
+</footer>/* ===== PART 10 : FINAL PREMIUM DESIGN ===== */
+
+.card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(0,255,255,0.4);
+    border-radius: 25px;
+    padding: 25px;
+}
+
+
+.card:hover {
+    border-color: cyan;
+    box-shadow:
+    0 0 20px cyan,
+    0 0 40px blue;
+}
+
+
+/* Premium Buttons */
+
+button {
+    background: linear-gradient(45deg, cyan, blue);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+/* Footer */
+
+footer {
+    margin-top: 50px;
+    padding: 25px;
+    text-align: center;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+    border-top: 2px solid cyan;
+    color: white;
+}
+
+
+/* Mobile Support */
+
+@media(max-width:600px){
+
+    .card {
+        width:90%;
+        margin:auto;
+    }
+
+    h1 {
+        font-size:35px;
+    }
+
+}<!-- ===== PART 11 : STUDY TOOLS ===== -->
+
+<section class="study-tools">
+
+<h2>📚 Study Zone</h2>
+
+<div class="tool-card">
+
+<h3>⏰ Study Timer</h3>
+
+<p id="timer">25:00</p>
+
+<button onclick="startTimer()">Start</button>
+
+</div>
+
+
+<div class="tool-card">
+
+<h3>🌟 Motivation</h3>
+
+<p>
+"Keep learning, keep growing 🚀"
+</p>
+
+</div>
+
+
+<div class="tool-card">
+
+<h3>🧮 Calculator</h3>
+
+<button onclick="openCalc()">Open Calculator</button>
+
+</div>
+
+</section><script>
+let time = 1500;
+
+function startTimer(){
+
+setInterval(function(){
+
+let minutes = Math.floor(time/60);
+let seconds = time%60;
+
+document.getElementById("timer").innerHTML =
+minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+
+time--;
+
+},1000);
+
+}
+
+
+function openCalc(){
+
+window.open("https://www.google.com/search?q=calculator");
+
+}
+
+</script>/* ===== PART 11 : STUDY TOOLS STYLE ===== */
+
+.study-tools{
+    text-align:center;
+    margin:40px;
+}
+
+
+.tool-card{
+    display:inline-block;
+    width:250px;
+    margin:15px;
+    padding:25px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    border:2px solid cyan;
+    color:white;
+}
+
+
+#timer{
+    font-size:40px;
+    color:cyan;
+}<!-- ===== PART 12 : GAMING ZONE ===== -->
+
+<section class="gaming-zone">
+
+<h2>🎮 Gaming Zone</h2>
+
+<div class="game-card">
+
+<h3>🚀 Speed Challenge</h3>
+
+<p>Test your clicking speed!</p>
+
+<button onclick="speedGame()">Play</button>
+
+</div>
+
+
+<div class="game-card">
+
+<h3>🧩 Brain Puzzle</h3>
+
+<p>Train your mind with puzzles!</p>
+
+<button onclick="puzzleGame()">Play</button>
+
+</div>
+
+
+<div class="game-card">
+
+<h3>🏆 Fun Quiz</h3>
+
+<p>Answer questions and score points!</p>
+
+<button onclick="quizGame()">Play</button>
+
+</div>
+
+</section><script>
+
+function speedGame(){
+
+alert("🚀 Speed Challenge Started! Click as fast as you can!");
+
+}
+
+
+function puzzleGame(){
+
+alert("🧩 Puzzle Game Coming Soon!");
+
+}
+
+
+function quizGame(){
+
+let answer = prompt("What is 5 + 5?");
+
+if(answer == "10"){
+alert("🎉 Correct! Great job!");
+}
+else{
+alert("❌ Try again!");
+}
+
+}
+
+</script>/* ===== PART 12 : GAMING ZONE STYLE ===== */
+
+.gaming-zone{
+    text-align:center;
+    margin:50px;
+}
+
+
+.game-card{
+
+display:inline-block;
+width:250px;
+padding:25px;
+margin:15px;
+
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(15px);
+
+border:2px solid #00ffff;
+border-radius:25px;
+
+color:white;
+
+transition:0.4s;
+
+}
+
+
+.game-card:hover{
+
+transform:translateY(-15px) scale(1.05);
+
+box-shadow:0 0 30px cyan;
+
+}
+
+
+.game-card button{
+
+margin-top:15px;
+
+}/* ===== PART 13 : FUTURISTIC EFFECTS ===== */
+
+
+/* Floating Headings */
+
+h2 {
+    animation: floatingTitle 3s ease-in-out infinite;
+}
+
+
+@keyframes floatingTitle {
+
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+
+}
+
+
+
+/* Neon Border Animation */
+
+.card,
+.game-card,
+.tool-card {
+
+    position: relative;
+    overflow: hidden;
+
+}
+
+
+.card::before,
+.game-card::before,
+.tool-card::before {
+
+    content:"";
+    position:absolute;
+
+    width:100%;
+    height:3px;
+
+    top:0;
+    left:-100%;
+
+    background:cyan;
+
+    animation: neonLine 3s infinite;
+
+}
+
+
+
+@keyframes neonLine {
+
+    0% {
+        left:-100%;
+    }
+
+    50% {
+        left:100%;
+    }
+
+    100% {
+        left:100%;
+    }
+
+}
+
+
+
+/* Section Fade In */
+
+section {
+
+    animation: sectionShow 1.5s ease;
+
+}
+
+
+
+@keyframes sectionShow {
+
+    from {
+
+        opacity:0;
+        transform:translateY(50px);
+
+    }
+
+
+    to {
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}<!-- ===== PART 14 : ACHIEVEMENTS ===== -->
+
+<section class="achievement-zone">
+
+<h2>🏆 Achievements</h2>
+
+<div class="achievement-card">
+
+<h3>🎮 Gaming Master</h3>
+<p>Complete gaming challenges</p>
+<span>⭐ Level 5</span>
+
+</div>
+
+
+<div class="achievement-card">
+
+<h3>📚 Study Champion</h3>
+<p>Complete your study goals</p>
+<span>⭐ Level 10</span>
+
+</div>
+
+
+<div class="achievement-card">
+
+<h3>🚀 Creator Badge</h3>
+<p>Build amazing projects</p>
+<span>⭐ Pro Creator</span>
+
+</div>
+
+</section>/* ===== PART 14 : ACHIEVEMENT STYLE ===== */
+
+
+.achievement-zone{
+
+text-align:center;
+margin:50px;
+
+}
+
+
+
+.achievement-card{
+
+display:inline-block;
+
+width:250px;
+
+padding:25px;
+
+margin:15px;
+
+background:rgba(255,255,255,0.08);
+
+backdrop-filter:blur(15px);
+
+border:2px solid gold;
+
+border-radius:25px;
+
+color:white;
+
+transition:0.4s;
+
+}
+
+
+
+.achievement-card:hover{
+
+transform:translateY(-15px) scale(1.05);
+
+box-shadow:0 0 35px gold;
+
+}
+
+
+
+.achievement-card span{
+
+display:block;
+
+margin-top:15px;
+
+color:yellow;
+
+font-size:20px;
+
+}<!-- ===== PART 15 : MOBILE APP BAR ===== -->
+
+<div class="mobile-bar">
+
+<button onclick="homeBtn()">🏠</button>
+
+<button onclick="studyBtn()">📚</button>
+
+<button onclick="gameBtn()">🎮</button>
+
+<button onclick="rewardBtn()">🏆</button>
+
+</div><script>
+
+function homeBtn(){
+window.scrollTo(0,0);
+}
+
+function studyBtn(){
+document.querySelector(".study-tools").scrollIntoView();
+}
+
+function gameBtn(){
+document.querySelector(".gaming-zone").scrollIntoView();
+}
+
+function rewardBtn(){
+document.querySelector(".achievement-zone").scrollIntoView();
+}
+
+</script>/* ===== PART 15 : MOBILE APP DESIGN ===== */
+
+
+.mobile-bar{
+
+position:fixed;
+
+bottom:20px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+display:flex;
+
+gap:15px;
+
+padding:15px 25px;
+
+background:rgba(0,0,0,0.5);
+
+backdrop-filter:blur(15px);
+
+border:2px solid cyan;
+
+border-radius:50px;
+
+z-index:100;
+
+}
+
+
+
+.mobile-bar button{
+
+width:50px;
+
+height:50px;
+
+border-radius:50%;
+
+font-size:22px;
+
+padding:0;
+
+}
+
+
+
+@media(max-width:600px){
+
+.mobile-bar{
+
+width:85%;
+
+justify-content:center;
+
+}
+
+}<!-- ===== PART 16 : AI HELPER ===== -->
+
+<section class="ai-zone">
+
+<h2>🤖 SUJAY AI Helper</h2>
+
+<div class="ai-card">
+
+<p id="aiText">
+Hi! I am SUJAY AI 🤖<br>
+Ask me something!
+</p>
+
+<input id="question" placeholder="Type your question...">
+
+<button onclick="askAI()">Ask AI</button>
+
+</div>
+
+</section><script>
+
+function askAI(){
+
+let q = document.getElementById("question").value.toLowerCase();
+
+let reply="I am learning! 🚀 Try asking about study or gaming.";
+
+if(q.includes("study")){
+reply="📚 Study tip: Take small breaks and revise regularly!";
+}
+
+else if(q.includes("game")){
+reply="🎮 Gaming tip: Practice and improve your skills!";
+}
+
+else if(q.includes("hello")){
+reply="👋 Hello! Welcome to SUJAY HUB!";
+
+}
+
+document.getElementById("aiText").innerHTML=reply;
+
+}
+
+</script>/* ===== PART 16 : AI HELPER STYLE ===== */
+
+.ai-zone{
+
+text-align:center;
+
+margin:50px;
+
+}
+
+
+
+.ai-card{
+
+display:inline-block;
+
+padding:30px;
+
+width:300px;
+
+background:rgba(255,255,255,0.08);
+
+backdrop-filter:blur(15px);
+
+border:2px solid cyan;
+
+border-radius:25px;
+
+color:white;
+
+}
+
+
+
+.ai-card input{
+
+padding:12px;
+
+border-radius:20px;
+
+border:none;
+
+width:90%;
+
+margin:15px;
+
+}
+
+
+
+.ai-card button{
+
+cursor:pointer;
+
+}<!-- ===== PART 17 : NOTES MANAGER ===== -->
+
+<section class="notes-zone">
+
+<h2>📝 My Notes</h2>
+
+<div class="notes-card">
+
+<textarea id="noteInput" placeholder="Write your notes here..."></textarea>
+
+<br>
+
+<button onclick="saveNote()">Save Note</button>
+
+<button onclick="clearNotes()">Clear</button>
+
+<h3>Saved Notes:</h3>
+
+<p id="savedNotes"></p>
+
+</div>
+
+</section><script>
+
+function saveNote(){
+
+let note = document.getElementById("noteInput").value;
+
+localStorage.setItem("sujayNote", note);
+
+showNotes();
+
+}
+
+
+function showNotes(){
+
+let note = localStorage.getItem("sujayNote");
+
+document.getElementById("savedNotes").innerHTML =
+note ? note : "No notes saved yet 📚";
+
+}
+
+
+function clearNotes(){
+
+localStorage.removeItem("sujayNote");
+
+showNotes();
+
+}
+
+
+showNotes();
+
+</script>/* ===== PART 17 : NOTES STYLE ===== */
+
+.notes-zone{
+
+text-align:center;
+
+margin:50px;
+
+}
+
+
+.notes-card{
+
+display:inline-block;
+
+padding:30px;
+
+width:350px;
+
+background:rgba(255,255,255,0.08);
+
+backdrop-filter:blur(15px);
+
+border:2px solid cyan;
+
+border-radius:25px;
+
+color:white;
+
+}
+
+
+textarea{
+
+width:90%;
+
+height:120px;
+
+padding:15px;
+
+border-radius:15px;
+
+resize:none;
+
+}<!-- ===== PART 18 : FOCUS MODE ===== -->
+
+<section class="focus-zone">
+
+<h2>🎧 Focus Mode</h2>
+
+<div class="focus-card">
+
+<p>Turn on Focus Mode while studying.</p>
+
+<button onclick="toggleFocus()">🌙 Focus Mode</button>
+
+<br><br>
+
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button onclick="toggleMusic()">🎵 Play / Pause Music</button>
+
+</div>
+
+</section><script>
+
+let focus = false;
+
+function toggleFocus(){
+
+    focus = !focus;
+
+    if(focus){
+        document.body.style.filter = "brightness(80%)";
+        alert("🌙 Focus Mode Enabled!");
+    }else{
+        document.body.style.filter = "brightness(100%)";
+        alert("☀️ Focus Mode Disabled!");
+    }
+
+}
+
+function toggleMusic(){
+
+    let music = document.getElementById("bgMusic");
+
+    if(music.paused){
+        music.play();
+    }else{
+        music.pause();
+    }
+
+}
+
+</script>/* ===== PART 18 : FOCUS MODE ===== */
+
+.focus-zone{
+    text-align:center;
+    margin:50px;
+}
+
+.focus-card{
+
+    display:inline-block;
+    padding:30px;
+    width:320px;
+
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+
+    border:2px solid cyan;
+    border-radius:25px;
+
+    color:white;
+
+}
+
+.focus-card button{
+    margin:10px;
+}<!-- ===== PART 19 : PRODUCTIVITY DASHBOARD ===== -->
+
+<section class="dashboard">
+
+<h2>🚀 Productivity Dashboard</h2>
+
+<div class="dashboard-card">
+
+<h3>📅 Today's Date</h3>
+<p id="todayDate"></p>
+
+<hr>
+
+<h3>⏱️ Stopwatch</h3>
+
+<p id="stopwatch">00:00:00</p>
+
+<button onclick="startStopwatch()">Start</button>
+<button onclick="stopStopwatch()">Stop</button>
+<button onclick="resetStopwatch()">Reset</button>
+
+<hr>
+
+<h3>💡 Daily Motivation</h3>
+
+<p id="quote">
+Click below for a new quote!
+</p>
+
+<button onclick="newQuote()">New Quote</button>
+
+</div>
+
+</section><script>
+
+document.getElementById("todayDate").innerHTML =
+new Date().toDateString();
+
+let seconds = 0;
+let timer = null;
+
+function updateWatch(){
+
+let h = String(Math.floor(seconds/3600)).padStart(2,"0");
+let m = String(Math.floor((seconds%3600)/60)).padStart(2,"0");
+let s = String(seconds%60).padStart(2,"0");
+
+document.getElementById("stopwatch").innerHTML =
+`${h}:${m}:${s}`;
+
+}
+
+function startStopwatch(){
+
+if(timer) return;
+
+timer = setInterval(function(){
+
+seconds++;
+updateWatch();
+
+},1000);
+
+}
+
+function stopStopwatch(){
+
+clearInterval(timer);
+timer = null;
+
+}
+
+function resetStopwatch(){
+
+stopStopwatch();
+seconds=0;
+updateWatch();
+
+}
+
+const quotes=[
+
+"📚 Small progress every day leads to big success.",
+
+"🚀 Believe in yourself and keep learning.",
+
+"🎮 Play smart, study smarter.",
+
+"💪 Never stop improving.",
+
+"🌟 Success begins with one step."
+
+];
+
+function newQuote(){
+
+let random=Math.floor(Math.random()*quotes.length);
+
+document.getElementById("quote").innerHTML=
+quotes[random];
+
+}
+
+updateWatch();
+
+</script>/* ===== PART 19 : DASHBOARD ===== */
+
+.dashboard{
+
+text-align:center;
+margin:60px 20px;
+
+}
+
+.dashboard-card{
+
+display:inline-block;
+width:380px;
+padding:30px;
+
+background:rgba(255,255,255,0.08);
+
+backdrop-filter:blur(15px);
+
+border:2px solid cyan;
+
+border-radius:25px;
+
+color:white;
+
+}
+
+.dashboard-card button{
+
+margin:6px;
+
+}
+
+.dashboard hr{
+
+margin:20px 0;
+border:1px solid rgba(255,255,255,0.2);
+
+}<!-- ===== PART 20 : ULTIMATE FEATURES ===== -->
+
+<button id="topBtn" onclick="topFunction()">⬆</button>
+
+<button id="themeBtn" onclick="toggleTheme()">🌙 Theme</button>
+
+<div id="welcomePopup" class="popup">
+    <h2>👋 Welcome to SUJAY HUB</h2>
+    <p>Enjoy Gaming 🎮 + Study 📚 + Creativity 🚀</p>
+    <button onclick="closePopup()">Start Exploring</button>
+</div><script>
+
+// Welcome Popup
+window.onload = function () {
+    document.getElementById("welcomePopup").style.display = "block";
+};
+
+// Close Popup
+function closePopup() {
+    document.getElementById("welcomePopup").style.display = "none";
+}
+
+// Back To Top
+window.onscroll = function () {
+
+    if(document.documentElement.scrollTop > 300){
+        document.getElementById("topBtn").style.display = "block";
+    }else{
+        document.getElementById("topBtn").style.display = "none";
+    }
+
+};
+
+function topFunction(){
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+// Theme Switch
+let dark = true;
+
+function toggleTheme(){
+
+    dark = !dark;
+
+    if(dark){
+
+        document.body.style.background="#0b1020";
+        document.body.style.color="white";
+
+    }else{
+
+        document.body.style.background="#f4f4f4";
+        document.body.style.color="#222";
+
+    }
+
+}
+
+</script>/* ===== PART 20 : ULTIMATE STYLE ===== */
+
+#topBtn,
+#themeBtn{
+
+position:fixed;
+
+right:20px;
+
+padding:12px 16px;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+font-size:18px;
+
+background:cyan;
+
+color:black;
+
+box-shadow:0 0 20px cyan;
+
+z-index:999;
+
+}
+
+#topBtn{
+
+bottom:20px;
+display:none;
+
+}
+
+#themeBtn{
+
+bottom:80px;
+
+}
+
+.popup{
+
+display:none;
+
+position:fixed;
+
+top:50%;
+
+left:50%;
+
+transform:translate(-50%,-50%);
+
+background:rgba(0,0,0,0.85);
+
+padding:30px;
+
+border-radius:20px;
+
+border:2px solid cyan;
+
+text-align:center;
+
+color:white;
+
+z-index:1000;
+
+animation:popupFade .6s;
+
+}
+
+@keyframes popupFade{
+
+from{
+opacity:0;
+transform:translate(-50%,-60%);
+}
+
+to{
+opacity:1;
+transform:translate(-50%,-50%);
+}
+
+}
