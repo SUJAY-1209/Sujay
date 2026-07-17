@@ -1,32 +1,145 @@
-<nav class="navbar">
-    <a href="gaming.html">🎮 Gaming</a>
-    <a href="study.html">📚 Study</a>
-    <a href="notes.html">📝 Notes</a>
-</nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sujay's Website</title>
 
 <style>
-.navbar{
-    background:#111;
-    padding:15px;
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    box-shadow:0 0 15px #00ffff;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
-.navbar a{
-    text-decoration:none;
-    color:white;
-    background:#007bff;
-    padding:12px 25px;
-    border-radius:30px;
-    font-size:18px;
-    transition:0.3s;
+body{
+background:linear-gradient(-45deg,#000428,#004e92,#6a11cb,#2575fc);
+background-size:400% 400%;
+animation:bg 10s ease infinite;
+color:white;
+text-align:center;
 }
 
-.navbar a:hover{
-    background:#00ffcc;
-    color:black;
-    transform:scale(1.1);
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+header{
+padding:60px 20px;
+}
+
+h1{
+font-size:60px;
+text-shadow:0 0 20px cyan;
+}
+
+p{
+font-size:22px;
+margin-top:15px;
+}
+
+.container{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:30px;
+padding:40px;
+}
+
+.card{
+width:300px;
+padding:25px;
+background:rgba(255,255,255,.1);
+border-radius:20px;
+backdrop-filter:blur(10px);
+box-shadow:0 0 20px rgba(0,255,255,.3);
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.05);
+box-shadow:0 0 30px cyan;
+}
+
+.card h2{
+margin-bottom:15px;
+}
+
+.card p{
+font-size:17px;
+margin-bottom:20px;
+}
+
+a{
+text-decoration:none;
+}
+
+button{
+padding:12px 30px;
+font-size:18px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+background:#00e5ff;
+color:black;
+font-weight:bold;
+transition:.3s;
+}
+
+button:hover{
+background:#ffee58;
+transform:scale(1.1);
+}
+
+footer{
+margin-top:40px;
+padding:20px;
+background:rgba(0,0,0,.5);
 }
 </style>
+
+</head>
+<body>
+
+<header>
+<h1>🚀 Sujay's Website</h1>
+<p>Gaming • Study • Notes</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+<h2>🎮 Gaming</h2>
+<p>Play games and explore fun content.</p>
+<a href="gaming.html">
+<button>Open Gaming</button>
+</a>
+</div>
+
+<div class="card">
+<h2>📚 Study</h2>
+<p>Learn 6th Class subjects with easy lessons.</p>
+<a href="study.html">
+<button>Open Study</button>
+</a>
+</div>
+
+<div class="card">
+<h2>📝 Notes</h2>
+<p>Read quick notes and revise anytime.</p>
+<a href="notes.html">
+<button>Open Notes</button>
+</a>
+</div>
+
+</div>
+
+<footer>
+<h3>© 2026 Sujay | Gaming & Study Hub</h3>
+</footer>
+
+</body>
+</html>
