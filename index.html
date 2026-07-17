@@ -1,224 +1,1083 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SUJAY HUB</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+    <style>
+        CSS here /* =====================================
+   SUJAY HUB PREMIUM CSS
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #050014;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Animated Background Circles */
+
+.circle {
+    position: fixed;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    filter: blur(80px);
+    background: #6c00ff;
+    animation: move 8s infinite alternate;
+    z-index: -1;
+}
+
+.circle:nth-child(1) {
+    top: 10%;
+    left: 10%;
+}
+
+.circle:nth-child(2) {
+    right: 10%;
+    top: 40%;
+    background: #00eaff;
+}
+
+.circle:nth-child(3) {
+    bottom: 10%;
+    left: 40%;
+    background: #ff00cc;
+}
+
+@keyframes move {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(100px);
+    }
+}
+
+
+/* Header */
+
+header {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+header h1 {
+    font-size: 55px;
+    color: #00ffff;
+    text-shadow:
+    0 0 10px #00ffff,
+    0 0 30px #008cff;
+}
+
+header p {
+    margin-top: 15px;
+    font-size: 22px;
+    color: #ddd;
+}
+
+
+/* Clock */
+
+#clock {
+    margin: 25px auto;
+    font-size: 35px;
+    padding: 15px 30px;
+    width: fit-content;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 25px cyan;
+}
+
+
+/* Search */
+
+.search input {
+
+    width: 80%;
+    max-width: 500px;
+    padding: 15px;
+
+    border-radius: 30px;
+    border: none;
+
+    background: rgba(255,255,255,0.15);
+    color:white;
+
+    outline:none;
+    font-size:18px;
+
+}
+
+
+/* Buttons */
+
+button {
+
+    margin:10px;
+    padding:14px 28px;
+
+    border:none;
+    border-radius:30px;
+
+    background:linear-gradient(45deg,#00ffff,#7000ff);
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+button:hover {
+
+    transform:scale(1.1);
+
+    box-shadow:
+    0 0 20px cyan,
+    0 0 40px purple;
+
+}
+
+
+/* Cards */
+
+.cards {
+
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:30px;
+
+    padding:40px;
+
+}
+
+
+.card,
+.tool-card,
+.game-card,
+.ai-card,
+.notes-card,
+.dashboard-card {
+
+    width:300px;
+
+    padding:30px;
+
+    border-radius:25px;
+
+    background:
+    rgba(255,255,255,0.12);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,0.2);
+
+    text-align:center;
+
+    transition:.4s;
+
+}
+
+
+.card:hover,
+.tool-card:hover,
+.game-card:hover,
+.ai-card:hover,
+.notes-card:hover,
+.dashboard-card:hover {
+
+    transform:translateY(-15px);
+
+    box-shadow:
+    0 0 30px cyan;
+
+}
+
+
+/* Sections */
+
+section {
+
+    padding:50px 20px;
+    text-align:center;
+
+}
+
+
+section h2 {
+
+    font-size:35px;
+    margin-bottom:30px;
+
+    color:#00ffff;
+
+}
+
+
+/* Notes */
+
+textarea {
+
+    width:90%;
+    height:150px;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    background:#111;
+
+    color:white;
+
+    font-size:18px;
+
+}
+
+
+/* AI Input */
+
+input {
+
+    padding:15px;
+
+    border-radius:20px;
+
+    border:none;
+
+}
+
+
+/* Footer */
+
+footer {
+
+    text-align:center;
+
+    padding:30px;
+
+    background:#000;
+
+    color:#aaa;
+
+}
+
+
+/* Mobile */
+
+@media(max-width:700px){
+
+header h1{
+
+font-size:38px;
+
+}
+
+
+.cards{
+
+padding:20px;
+
+}
+
+
+.card{
+
+width:90%;
+
+}
+
+}
+    </style>
 </head>
 
 <body>
 
-<!-- Animated Background -->
+    <!--  HTML  --> <!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SUJAY HUB</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- Background -->
 <div class="circle"></div>
 <div class="circle"></div>
 <div class="circle"></div>
+
+
 
 <!-- Header -->
+
 <header>
 
-    <h1>🚀 SUJAY HUB</h1>
+<h1>🚀 SUJAY HUB</h1>
 
-    <p>Gaming • Study • Notes</p>
+<p>🎮 Gaming • 📚 Study • 📝 Notes</p>
 
-    <div id="clock"></div>
 
-    <div class="search">
-        <input type="text" id="searchInput" placeholder="🔍 Search SUJAY HUB...">
-    </div>
+<div id="clock">
+00:00:00
+</div>
 
-    <div class="top-btns">
-        <button onclick="shareWebsite()">📤 Share</button>
-        <button onclick="toggleMode()">🌙 Theme</button>
-    </div>
+
+<div class="search">
+
+<input id="searchInput" 
+placeholder="🔍 Search SUJAY HUB">
+
+</div>
+
+
+<div class="top-btns">
+
+<button onclick="shareWebsite()">
+📤 Share
+</button>
+
+
+<button onclick="toggleMode()">
+🌙 Theme
+</button>
+
+
+</div>
+
 
 </header>
 
-<!-- Cards -->
+
+
+
+<!-- Main Cards -->
+
+
 <section class="cards">
 
-    <div class="card">
-        <h2>🎮 Gaming Zone</h2>
-        <p>Play games and have fun.</p>
-        <button>Enter</button>
-    </div>
 
-    <div class="card">
-        <h2>📚 Study Zone</h2>
-        <p>Learn and improve your knowledge.</p>
-        <button>Study</button>
-    </div>
+<div class="card">
 
-    <div class="card">
-        <h2>📝 Notes</h2>
-        <p>Save your important notes.</p>
-        <button>Open Notes</button>
-    </div>
+<h2>🎮 Gaming Zone</h2>
+
+<p>
+Play games and enjoy challenges.
+</p>
+
+<button>
+Enter
+</button>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>📚 Study Zone</h2>
+
+<p>
+Learn new things and improve.
+</p>
+
+<button>
+Study
+</button>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>📝 Notes</h2>
+
+<p>
+Save your important notes.
+</p>
+
+<button>
+Open
+</button>
+
+</div>
+
 
 </section>
 
-<!-- Study -->
-<section class="study-tools">
+
+
+
+
+<!-- Study Tools -->
+
+
+<section>
+
 
 <h2>📚 Study Tools</h2>
 
+
 <div class="tool-card">
 
-<p id="timer">25:00</p>
+
+<h3>⏰ Study Timer</h3>
+
+
+<p id="timer">
+25:00
+</p>
+
 
 <button onclick="startTimer()">
 Start Timer
 </button>
 
+
 </div>
+
 
 </section>
 
-<!-- Gaming -->
-<section class="gaming-zone">
 
-<h2>🎮 Gaming Zone</h2>
+
+
+
+
+<!-- Gaming -->
+
+
+<section>
+
+
+<h2>🎮 Gaming Hub</h2>
+
 
 <div class="game-card">
 
-<h3>Speed Challenge</h3>
+
+<h3>⚡ Speed Challenge</h3>
+
+<p>
+Test your speed!
+</p>
+
 
 <button onclick="speedGame()">
 Play
 </button>
 
+
 </div>
+
+
 
 <div class="game-card">
 
-<h3>Quiz</h3>
+
+<h3>🧠 Quiz Game</h3>
+
+<p>
+Test your knowledge.
+</p>
+
 
 <button onclick="quizGame()">
-Start Quiz
+Start
 </button>
+
 
 </div>
 
+
+
 </section>
 
+
+
+
+
+
+
 <!-- AI -->
-<section class="ai-zone">
+
+
+<section>
+
 
 <h2>🤖 SUJAY AI</h2>
 
+
 <div class="ai-card">
 
+
 <p id="aiText">
-
 Hello! Ask me anything.
-
 </p>
 
+
 <input id="question"
-placeholder="Type here...">
+placeholder="Type your question">
+
 
 <button onclick="askAI()">
-
 Ask AI
-
 </button>
+
+
 
 </div>
 
+
 </section>
+
+
+
+
+
+
 
 <!-- Notes -->
 
-<section class="notes-zone">
 
-<h2>📝 Notes</h2>
+<section>
+
+
+<h2>📝 My Notes</h2>
+
 
 <div class="notes-card">
 
-<textarea
-id="noteInput"
-placeholder="Write notes...">
+
+<textarea id="noteInput"
+placeholder="Write your notes...">
 </textarea>
+
 
 <br>
 
+
 <button onclick="saveNote()">
-
 Save
-
 </button>
+
 
 <button onclick="clearNotes()">
-
 Clear
-
 </button>
+
 
 <p id="savedNotes"></p>
 
+
+
 </div>
+
 
 </section>
 
+
+
+
+
+
+
+
 <!-- Dashboard -->
 
-<section class="dashboard">
+
+<section>
+
 
 <h2>🚀 Dashboard</h2>
 
+
 <div class="dashboard-card">
+
 
 <p id="todayDate"></p>
 
+
 <p id="stopwatch">
-
 00:00:00
-
 </p>
+
 
 <button onclick="startStopwatch()">
 Start
 </button>
 
+
 <button onclick="stopStopwatch()">
 Stop
 </button>
+
 
 <button onclick="resetStopwatch()">
 Reset
 </button>
 
-<p id="quote"></p>
 
-<button onclick="newQuote()">
 
-New Quote
+<p id="quote">
+🔥 Keep Learning!
+</p>
 
-</button>
 
 </div>
 
+
 </section>
+
+
+
+
+
+
+
 
 <!-- Footer -->
 
+
 <footer>
 
-<h3>🚀 SUJAY HUB</h3>
+
+<h3>
+🚀 SUJAY HUB
+</h3>
+
 
 <p>
-
 Gaming 🎮 • Study 📚 • Notes 📝
-
 </p>
+
 
 </footer>
 
-<!-- JS -->
+
+
+
+
 
 <script src="script.js"></script>
+
+
+</body>
+
+</html>
+
+    <script>
+        //JavaScript here // =================================
+// SUJAY HUB JAVASCRIPT
+// =================================
+
+
+// Live Clock
+
+function updateClock(){
+
+    let now = new Date();
+
+    let h = String(now.getHours()).padStart(2,"0");
+    let m = String(now.getMinutes()).padStart(2,"0");
+    let s = String(now.getSeconds()).padStart(2,"0");
+
+
+    document.getElementById("clock").innerHTML =
+    `${h}:${m}:${s}`;
+
+}
+
+setInterval(updateClock,1000);
+updateClock();
+
+
+
+
+// Theme Button
+
+function toggleMode(){
+
+    document.body.classList.toggle("light");
+
+}
+
+
+
+// Share Website
+
+function shareWebsite(){
+
+    if(navigator.share){
+
+        navigator.share({
+
+            title:"SUJAY HUB",
+
+            text:"Check my Gaming + Study Website!",
+
+            url:window.location.href
+
+        });
+
+    }
+
+    else{
+
+        alert("Copy this link and share: "+window.location.href);
+
+    }
+
+}
+
+
+
+
+
+
+// Search
+
+let searchInput =
+document.getElementById("searchInput");
+
+
+if(searchInput){
+
+searchInput.addEventListener("keyup",function(){
+
+let value=this.value.toLowerCase();
+
+
+document.querySelectorAll(".card")
+.forEach(card=>{
+
+
+let text=card.innerText.toLowerCase();
+
+
+if(text.includes(value)){
+
+card.style.display="block";
+
+}
+
+else{
+
+card.style.display="none";
+
+}
+
+
+});
+
+
+});
+
+}
+
+
+
+
+
+
+
+
+// Study Timer
+
+
+let time = 1500;
+let timer;
+
+
+function startTimer(){
+
+
+clearInterval(timer);
+
+
+timer=setInterval(()=>{
+
+
+let minutes=Math.floor(time/60);
+
+let seconds=time%60;
+
+
+document.getElementById("timer").innerHTML =
+
+minutes+":"+
+(seconds<10?"0":"")+seconds;
+
+
+
+if(time<=0){
+
+clearInterval(timer);
+
+alert("Study Time Finished!");
+
+}
+
+
+time--;
+
+
+},1000);
+
+
+}
+
+
+
+
+
+
+
+
+// Speed Game
+
+
+function speedGame(){
+
+alert("⚡ Speed Challenge Started!");
+
+}
+
+
+
+
+
+
+
+// Quiz Game
+
+
+function quizGame(){
+
+let answer =
+prompt("What is 5 + 5 ?");
+
+
+if(answer=="10"){
+
+alert("🎉 Correct!");
+
+}
+
+else{
+
+alert("❌ Try Again!");
+
+}
+
+}
+
+
+
+
+
+
+
+
+// AI
+
+
+function askAI(){
+
+let q =
+document.getElementById("question").value;
+
+
+let ai =
+document.getElementById("aiText");
+
+
+if(q){
+
+ai.innerHTML =
+"🤖 You asked: "+q+
+"<br>💡 Keep learning and exploring!";
+
+}
+
+}
+
+
+
+
+
+
+
+
+// Notes
+
+
+function saveNote(){
+
+let note =
+document.getElementById("noteInput").value;
+
+
+localStorage.setItem("sujayNote",note);
+
+
+document.getElementById("savedNotes").innerHTML =
+"✅ Note Saved!";
+
+}
+
+
+
+function clearNotes(){
+
+localStorage.removeItem("sujayNote");
+
+
+document.getElementById("noteInput").value="";
+
+document.getElementById("savedNotes").innerHTML =
+"🗑 Notes Cleared!";
+
+}
+
+
+
+
+
+
+
+
+// Date
+
+
+document.getElementById("todayDate").innerHTML =
+
+"📅 "+new Date().toDateString();
+
+
+
+
+
+
+
+
+// Stopwatch
+
+
+let sec=0;
+
+let stopwatch;
+
+
+function startStopwatch(){
+
+
+clearInterval(stopwatch);
+
+
+stopwatch=setInterval(()=>{
+
+
+sec++;
+
+
+let h=Math.floor(sec/3600);
+
+let m=Math.floor((sec%3600)/60);
+
+let s=sec%60;
+
+
+document.getElementById("stopwatch").innerHTML =
+
+h+":"+m+":"+s;
+
+
+},1000);
+
+
+}
+
+
+
+function stopStopwatch(){
+
+clearInterval(stopwatch);
+
+}
+
+
+
+function resetStopwatch(){
+
+clearInterval(stopwatch);
+
+sec=0;
+
+document.getElementById("stopwatch").innerHTML=
+"00:00:00";
+
+}
+
+
+
+
+
+
+
+// Quotes
+
+
+let quotes=[
+
+"🚀 Never Give Up!",
+
+"📚 Study Smart!",
+
+"🎮 Have Fun!",
+
+"🔥 Keep Improving!",
+
+"⭐ Believe In Yourself!"
+
+];
+
+
+
+function newQuote(){
+
+let random =
+Math.floor(Math.random()*quotes.length);
+
+
+document.getElementById("quote").innerHTML =
+quotes[random];
+
+}
+    </script>
 
 </body>
 </html>
