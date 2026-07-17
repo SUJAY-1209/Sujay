@@ -1,8 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gaming Zone</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:linear-gradient(-45deg,#000000,#0f2027,#1c1c3c,#6a11cb);
+background-size:400% 400%;
+animation:bg 10s ease infinite;
+color:white;
+text-align:center;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+header{
+padding:40px;
+}
+
+h1{
+font-size:55px;
+color:#00ffff;
+text-shadow:0 0 20px cyan;
+}
+
+.container{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:25px;
+padding:30px;
+}
+
+.card{
+width:280px;
+background:rgba(255,255,255,.1);
+backdrop-filter:blur(10px);
+padding:20px;
+border-radius:20px;
+box-shadow:0 0 20px rgba(0,255,255,.4);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.05);
+box-shadow:0 0 30px cyan;
+}
+
+.card h2{
+margin-bottom:10px;
+}
+
+.card p{
+margin-bottom:20px;
+}
+
+button{
+padding:12px 25px;
+border:none;
+border-radius:30px;
+background:#00ffff;
+color:black;
+font-size:18px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+background:yellow;
+transform:scale(1.1);
+}
+
+a{
+text-decoration:none;
+}
+
+footer{
+margin-top:40px;
+padding:20px;
+background:rgba(0,0,0,.5);
+}
+</style>
+
+</head>
+<body>
+
+<header>
+<h1>🎮 Gaming Zone</h1>
+<p>Choose a game and start playing!</p>
+</header>
+
+<div class="container">
+
 <div class="card">
 <h2>🧩 2048</h2>
-<p>Join the numbers to reach 2048.</p>
+<p>Join numbers and reach 2048.</p>
 <a href="https://play2048.co/" target="_blank">
-<button>Play Now</button>
+<button>Play</button>
 </a>
 </div>
 
@@ -10,22 +117,47 @@
 <h2>🐍 Snake</h2>
 <p>Classic Snake game.</p>
 <a href="https://playsnake.org/" target="_blank">
-<button>Play Now</button>
+<button>Play</button>
 </a>
 </div>
 
 <div class="card">
 <h2>🧱 Tetris</h2>
-<p>Arrange the blocks and score points.</p>
+<p>Arrange blocks and score points.</p>
 <a href="https://tetris.com/play-tetris" target="_blank">
-<button>Play Now</button>
+<button>Play</button>
 </a>
 </div>
 
 <div class="card">
-<h2>⛏️ Minecraft Classic</h2>
-<p>Play Minecraft Classic in your browser.</p>
+<h2>⛏ Minecraft</h2>
+<p>Play Minecraft Classic.</p>
 <a href="https://classic.minecraft.net/" target="_blank">
-<button>Play Now</button>
+<button>Play</button>
 </a>
 </div>
+
+<div class="card">
+<h2>♟ Chess</h2>
+<p>Challenge your mind.</p>
+<a href="https://www.chess.com/play/computer" target="_blank">
+<button>Play</button>
+</a>
+</div>
+
+<div class="card">
+<h2>🌍 GeoGuessr</h2>
+<p>Guess locations around the world.</p>
+<a href="https://www.geoguessr.com/" target="_blank">
+<button>Play</button>
+</a>
+</div>
+
+</div>
+
+<footer>
+<h3>© 2026 Gaming Zone | Made by Sujay</h3>
+</footer>
+
+</body>
+</html>
