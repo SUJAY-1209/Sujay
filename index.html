@@ -1,1135 +1,895 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>SUJAY HUB</title>
-
-    <style>
-        CSS here /* =====================================
-   SUJAY HUB PREMIUM CSS
-===================================== */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-
-body {
-    min-height: 100vh;
-    background: #050014;
-    color: white;
-    overflow-x: hidden;
-}
-
-/* Animated Background Circles */
-
-.circle {
-    position: fixed;
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    filter: blur(80px);
-    background: #6c00ff;
-    animation: move 8s infinite alternate;
-    z-index: -1;
-}
-
-.circle:nth-child(1) {
-    top: 10%;
-    left: 10%;
-}
-
-.circle:nth-child(2) {
-    right: 10%;
-    top: 40%;
-    background: #00eaff;
-}
-
-.circle:nth-child(3) {
-    bottom: 10%;
-    left: 40%;
-    background: #ff00cc;
-}
-
-@keyframes move {
-    from {
-        transform: translateY(0);
-    }
-
-    to {
-        transform: translateY(100px);
-    }
-}
-
-
-/* Header */
-
-header {
-    text-align: center;
-    padding: 60px 20px;
-}
-
-header h1 {
-    font-size: 55px;
-    color: #00ffff;
-    text-shadow:
-    0 0 10px #00ffff,
-    0 0 30px #008cff;
-}
-
-header p {
-    margin-top: 15px;
-    font-size: 22px;
-    color: #ddd;
-}
-
-
-/* Clock */
-
-#clock {
-    margin: 25px auto;
-    font-size: 35px;
-    padding: 15px 30px;
-    width: fit-content;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(15px);
-    box-shadow: 0 0 25px cyan;
-}
-
-
-/* Search */
-
-.search input {
-
-    width: 80%;
-    max-width: 500px;
-    padding: 15px;
-
-    border-radius: 30px;
-    border: none;
-
-    background: rgba(255,255,255,0.15);
-    color:white;
-
-    outline:none;
-    font-size:18px;
-
-}
-
-
-/* Buttons */
-
-button {
-
-    margin:10px;
-    padding:14px 28px;
-
-    border:none;
-    border-radius:30px;
-
-    background:linear-gradient(45deg,#00ffff,#7000ff);
-
-    color:white;
-
-    font-size:16px;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-}
-
-
-button:hover {
-
-    transform:scale(1.1);
-
-    box-shadow:
-    0 0 20px cyan,
-    0 0 40px purple;
-
-}
-
-
-/* Cards */
-
-.cards {
-
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:30px;
-
-    padding:40px;
-
-}
-
-
-.card,
-.tool-card,
-.game-card,
-.ai-card,
-.notes-card,
-.dashboard-card {
-
-    width:300px;
-
-    padding:30px;
-
-    border-radius:25px;
-
-    background:
-    rgba(255,255,255,0.12);
-
-    backdrop-filter:blur(15px);
-
-    border:1px solid rgba(255,255,255,0.2);
-
-    text-align:center;
-
-    transition:.4s;
-
-}
-
-
-.card:hover,
-.tool-card:hover,
-.game-card:hover,
-.ai-card:hover,
-.notes-card:hover,
-.dashboard-card:hover {
-
-    transform:translateY(-15px);
-
-    box-shadow:
-    0 0 30px cyan;
-
-}
-
-
-/* Sections */
-
-section {
-
-    padding:50px 20px;
-    text-align:center;
-
-}
-
-
-section h2 {
-
-    font-size:35px;
-    margin-bottom:30px;
-
-    color:#00ffff;
-
-}
-
-
-/* Notes */
-
-textarea {
-
-    width:90%;
-    height:150px;
-
-    padding:15px;
-
-    border-radius:15px;
-
-    background:#111;
-
-    color:white;
-
-    font-size:18px;
-
-}
-
-
-/* AI Input */
-
-input {
-
-    padding:15px;
-
-    border-radius:20px;
-
-    border:none;
-
-}
-
-
-/* Footer */
-
-footer {
-
-    text-align:center;
-
-    padding:30px;
-
-    background:#000;
-
-    color:#aaa;
-
-}
-
-
-/* Mobile */
-
-@media(max-width:700px){
-
-header h1{
-
-font-size:38px;
-
-}
-
-
-.cards{
-
-padding:20px;
-
-}
-
-
-.card{
-
-width:90%;
-
-}
-
-}
-    </style>
-</head>
-
-<body>
-
-    <!--  HTML  --> <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>SUJAY HUB</title>
 
 <link rel="stylesheet" href="style.css">
-
 </head>
 
-
 <body>
-
 
 <!-- Background -->
 <div class="circle"></div>
 <div class="circle"></div>
 <div class="circle"></div>
 
-
-
 <!-- Header -->
-
 <header>
 
 <h1>🚀 SUJAY HUB</h1>
 
-<p>🎮 Gaming • 📚 Study • 📝 Notes</p>
+<p>Gaming • Study • Notes • Maths Quiz</p>
 
-
-<div id="clock">
-00:00:00
-</div>
-
+<div id="clock">00:00:00</div>
 
 <div class="search">
-
-<input id="searchInput" 
-placeholder="🔍 Search SUJAY HUB">
-
+<input type="text" id="searchInput" placeholder="🔍 Search...">
 </div>
 
-
-<div class="top-btns">
-
-<button onclick="shareWebsite()">
-📤 Share
-</button>
-
-
-<button onclick="toggleMode()">
-🌙 Theme
-</button>
-
-
+<div class="top-buttons">
+<button onclick="shareWebsite()">📤 Share</button>
+<button onclick="toggleMode()">🌙 Theme</button>
 </div>
-
 
 </header>
 
-
-
-
 <!-- Main Cards -->
-
-
 <section class="cards">
 
-
 <div class="card">
-
 <h2>🎮 Gaming Zone</h2>
-
-<p>
-Play games and enjoy challenges.
-</p>
-
-<button>
-Enter
-</button>
-
+<p>Play fun games.</p>
+<button>Open</button>
 </div>
 
-
-
 <div class="card">
-
 <h2>📚 Study Zone</h2>
-
-<p>
-Learn new things and improve.
-</p>
-
-<button>
-Study
-</button>
-
+<p>Learn every day.</p>
+<button>Open</button>
 </div>
-
-
 
 <div class="card">
-
 <h2>📝 Notes</h2>
-
-<p>
-Save your important notes.
-</p>
-
-<button>
-Open
-</button>
-
+<p>Save your notes.</p>
+<button>Open</button>
 </div>
-
 
 </section>
 
-
-
-
-
-<!-- Study Tools -->
-
-
+<!-- Study Timer -->
 <section>
 
-
-<h2>📚 Study Tools</h2>
-
+<h2>📚 Study Timer</h2>
 
 <div class="tool-card">
 
+<p id="timer">25:00</p>
 
-<h3>⏰ Study Timer</h3>
-
-
-<p id="timer">
-25:00
-</p>
-
-
-<button onclick="startTimer()">
-Start Timer
-</button>
-
+<button onclick="startTimer()">Start Timer</button>
 
 </div>
 
-
 </section>
 
-
-
-
-
-
 <!-- Gaming -->
-
-
 <section>
-
 
 <h2>🎮 Gaming Hub</h2>
 
-
 <div class="game-card">
 
+<h3>⚡ Speed Game</h3>
 
-<h3>⚡ Speed Challenge</h3>
-
-<p>
-Test your speed!
-</p>
-
-
-<button onclick="speedGame()">
-Play
-</button>
-
+<button onclick="speedGame()">Play</button>
 
 </div>
 
-
-
 <div class="game-card">
-
 
 <h3>🧠 Quiz Game</h3>
 
-<p>
-Test your knowledge.
-</p>
-
-
-<button onclick="quizGame()">
-Start
-</button>
-
+<button onclick="quizGame()">Start</button>
 
 </div>
 
+</section>
 
+<!-- Maths Quiz -->
+<section>
+
+<h2>🧮 50 Maths Questions</h2>
+
+<div class="quiz-card">
+
+<h3 id="mathQuestion">
+Press Start Quiz
+</h3>
+
+<input
+type="number"
+id="mathAnswer"
+placeholder="Your Answer">
+
+<br><br>
+
+<button onclick="startMathQuiz()">
+▶ Start Quiz
+</button>
+
+<button onclick="checkMathAnswer()">
+✅ Next Question
+</button>
+
+<p id="mathResult"></p>
+
+<h3 id="mathScore">
+Score : 0 / 50
+</h3>
+
+</div>
 
 </section>
 
-
-
-
-
-
-
 <!-- AI -->
-
-
 <section>
-
 
 <h2>🤖 SUJAY AI</h2>
 
-
 <div class="ai-card">
-
 
 <p id="aiText">
 Hello! Ask me anything.
 </p>
 
-
-<input id="question"
+<input
+id="question"
 placeholder="Type your question">
-
 
 <button onclick="askAI()">
 Ask AI
 </button>
 
-
-
 </div>
-
 
 </section>
 
-
-
-
-
-
-
 <!-- Notes -->
-
-
 <section>
-
 
 <h2>📝 My Notes</h2>
 
-
 <div class="notes-card">
 
+<textarea
+id="noteInput"
+placeholder="Write your notes..."></textarea>
 
-<textarea id="noteInput"
-placeholder="Write your notes...">
-</textarea>
-
-
-<br>
-
+<br><br>
 
 <button onclick="saveNote()">
 Save
 </button>
 
-
 <button onclick="clearNotes()">
 Clear
 </button>
 
-
 <p id="savedNotes"></p>
-
-
 
 </div>
 
-
 </section>
 
-
-
-
-
-
-
-
 <!-- Dashboard -->
-
-
 <section>
-
 
 <h2>🚀 Dashboard</h2>
 
-
 <div class="dashboard-card">
 
-
 <p id="todayDate"></p>
-
 
 <p id="stopwatch">
 00:00:00
 </p>
 
+<button onclick="startStopwatch()">Start</button>
 
-<button onclick="startStopwatch()">
-Start
-</button>
+<button onclick="stopStopwatch()">Stop</button>
 
-
-<button onclick="stopStopwatch()">
-Stop
-</button>
-
-
-<button onclick="resetStopwatch()">
-Reset
-</button>
-
-
+<button onclick="resetStopwatch()">Reset</button>
 
 <p id="quote">
 🔥 Keep Learning!
 </p>
 
-
 </div>
-
 
 </section>
 
-
-
-
-
-
-
-
 <!-- Footer -->
-
-
 <footer>
 
-
-<h3>
-🚀 SUJAY HUB
-</h3>
-
+<h2>🚀 SUJAY HUB</h2>
 
 <p>
-Gaming 🎮 • Study 📚 • Notes 📝
+Gaming • Study • Maths • Notes
 </p>
-
 
 </footer>
 
-
-
-
-
-
 <script src="script.js"></script>
 
-
 </body>
+</html>/* ===========================
+   SUJAY HUB PREMIUM CSS
+=========================== */
 
-</html>
-
-    <script>
-        //JavaScript here // =================================
-// SUJAY HUB JAVASCRIPT
-// =================================
-
-
-// Live Clock
-
-function updateClock(){
-
-    let now = new Date();
-
-    let h = String(now.getHours()).padStart(2,"0");
-    let m = String(now.getMinutes()).padStart(2,"0");
-    let s = String(now.getSeconds()).padStart(2,"0");
-
-
-    document.getElementById("clock").innerHTML =
-    `${h}:${m}:${s}`;
-
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
-setInterval(updateClock,1000);
+body{
+background:#050014;
+color:#fff;
+overflow-x:hidden;
+}
+
+/* Background */
+
+.circle{
+position:fixed;
+width:250px;
+height:250px;
+border-radius:50%;
+filter:blur(80px);
+animation:move 8s infinite alternate;
+z-index:-1;
+}
+
+.circle:nth-child(1){
+background:#6c00ff;
+top:10%;
+left:10%;
+}
+
+.circle:nth-child(2){
+background:#00eaff;
+top:40%;
+right:10%;
+}
+
+.circle:nth-child(3){
+background:#ff00cc;
+bottom:10%;
+left:40%;
+}
+
+@keyframes move{
+from{
+transform:translateY(0);
+}
+to{
+transform:translateY(100px);
+}
+}
+
+/* Header */
+
+header{
+text-align:center;
+padding:60px 20px;
+}
+
+header h1{
+font-size:60px;
+color:#00ffff;
+text-shadow:0 0 20px cyan;
+}
+
+header p{
+font-size:22px;
+margin-top:10px;
+color:#ddd;
+}
+
+/* Clock */
+
+#clock{
+margin:20px auto;
+width:220px;
+padding:15px;
+border-radius:20px;
+background:rgba(255,255,255,.1);
+backdrop-filter:blur(15px);
+font-size:35px;
+box-shadow:0 0 20px cyan;
+}
+
+/* Search */
+
+.search input{
+width:80%;
+max-width:500px;
+padding:15px;
+border:none;
+outline:none;
+border-radius:30px;
+background:rgba(255,255,255,.15);
+color:#fff;
+font-size:18px;
+}
+
+/* Buttons */
+
+button{
+padding:14px 28px;
+margin:10px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+font-size:17px;
+background:linear-gradient(45deg,#00ffff,#6c00ff);
+color:#fff;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.08);
+box-shadow:0 0 25px cyan;
+}
+
+/* Sections */
+
+section{
+padding:50px 20px;
+text-align:center;
+}
+
+section h2{
+font-size:36px;
+margin-bottom:30px;
+color:#00ffff;
+}
+
+/* Cards */
+
+.cards{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:30px;
+padding:40px;
+}
+
+.card,
+.tool-card,
+.game-card,
+.quiz-card,
+.ai-card,
+.notes-card,
+.dashboard-card{
+
+width:320px;
+padding:30px;
+border-radius:25px;
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.2);
+transition:.4s;
+}
+
+.card:hover,
+.tool-card:hover,
+.game-card:hover,
+.quiz-card:hover,
+.ai-card:hover,
+.notes-card:hover,
+.dashboard-card:hover{
+
+transform:translateY(-10px);
+box-shadow:0 0 25px cyan;
+}
+
+/* Quiz */
+
+#mathQuestion{
+font-size:24px;
+margin-bottom:20px;
+}
+
+#mathAnswer{
+width:220px;
+padding:12px;
+border:none;
+border-radius:15px;
+text-align:center;
+font-size:20px;
+margin-bottom:20px;
+}
+
+#mathResult{
+margin-top:15px;
+font-size:20px;
+font-weight:bold;
+color:#00ff99;
+}
+
+#mathScore{
+margin-top:20px;
+color:gold;
+}
+
+/* Notes */
+
+textarea{
+width:90%;
+height:160px;
+padding:15px;
+border:none;
+border-radius:15px;
+background:#111;
+color:#fff;
+font-size:18px;
+}
+
+/* AI */
+
+.ai-card input{
+width:90%;
+padding:12px;
+border:none;
+border-radius:15px;
+margin-top:15px;
+}
+
+/* Dashboard */
+
+#stopwatch{
+font-size:30px;
+margin:20px;
+color:#00ffff;
+}
+
+#quote{
+margin-top:20px;
+font-size:22px;
+color:gold;
+}
+
+/* Footer */
+
+footer{
+padding:30px;
+text-align:center;
+background:#000;
+color:#aaa;
+margin-top:50px;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.cards{
+flex-direction:column;
+align-items:center;
+}
+
+.card,
+.tool-card,
+.game-card,
+.quiz-card,
+.ai-card,
+.notes-card,
+.dashboard-card{
+width:90%;
+}
+
+header h1{
+font-size:40px;
+}
+
+#clock{
+font-size:28px;
+}
+
+}// ===================================
+// SUJAY HUB - PART A
+// ===================================
+
+// Live Clock
+function updateClock() {
+    let now = new Date();
+
+    let h = String(now.getHours()).padStart(2, "0");
+    let m = String(now.getMinutes()).padStart(2, "0");
+    let s = String(now.getSeconds()).padStart(2, "0");
+
+    document.getElementById("clock").innerHTML = h + ":" + m + ":" + s;
+}
+
+setInterval(updateClock, 1000);
 updateClock();
 
 
-
-
-// Theme Button
-
-function toggleMode(){
-
+// Theme
+function toggleMode() {
     document.body.classList.toggle("light");
-
 }
 
 
+// Share
+function shareWebsite() {
 
-// Share Website
-
-function shareWebsite(){
-
-    if(navigator.share){
+    if (navigator.share) {
 
         navigator.share({
-
-            title:"SUJAY HUB",
-
-            text:"Check my Gaming + Study Website!",
-
-            url:window.location.href
-
+            title: "SUJAY HUB",
+            text: "Check out my SUJAY HUB website!",
+            url: location.href
         });
 
-    }
+    } else {
 
-    else{
-
-        alert("Copy this link and share: "+window.location.href);
+        alert("Website Link:\n" + location.href);
 
     }
 
 }
-
-
-
-
 
 
 // Search
+let searchInput = document.getElementById("searchInput");
 
-let searchInput =
-document.getElementById("searchInput");
+if (searchInput) {
 
+    searchInput.addEventListener("keyup", function () {
 
-if(searchInput){
+        let value = this.value.toLowerCase();
 
-searchInput.addEventListener("keyup",function(){
+        document.querySelectorAll(".card").forEach(card => {
 
-let value=this.value.toLowerCase();
+            if (card.innerText.toLowerCase().includes(value)) {
 
+                card.style.display = "block";
 
-document.querySelectorAll(".card")
-.forEach(card=>{
+            } else {
 
+                card.style.display = "none";
 
-let text=card.innerText.toLowerCase();
+            }
 
+        });
 
-if(text.includes(value)){
-
-card.style.display="block";
-
-}
-
-else{
-
-card.style.display="none";
+    });
 
 }
-
-
-});
-
-
-});
-
-}
-
-
-
-
-
-
 
 
 // Study Timer
 
-
 let time = 1500;
 let timer;
 
+function startTimer() {
 
-function startTimer(){
+    clearInterval(timer);
 
+    time = 1500;
 
-clearInterval(timer);
+    timer = setInterval(function () {
 
+        let min = Math.floor(time / 60);
+        let sec = time % 60;
 
-timer=setInterval(()=>{
+        document.getElementById("timer").innerHTML =
+            min + ":" + (sec < 10 ? "0" : "") + sec;
 
+        if (time <= 0) {
 
-let minutes=Math.floor(time/60);
+            clearInterval(timer);
 
-let seconds=time%60;
+            alert("🎉 Study Time Finished!");
 
+        }
 
-document.getElementById("timer").innerHTML =
+        time--;
 
-minutes+":"+
-(seconds<10?"0":"")+seconds;
-
-
-
-if(time<=0){
-
-clearInterval(timer);
-
-alert("Study Time Finished!");
+    }, 1000);
 
 }
-
-
-time--;
-
-
-},1000);
-
-
-}
-
-
-
-
-
-
 
 
 // Speed Game
 
+function speedGame() {
 
-function speedGame(){
-
-alert("⚡ Speed Challenge Started!");
+    alert("⚡ Speed Challenge Started!");
 
 }
-
-
-
-
-
 
 
 // Quiz Game
 
+function quizGame() {
 
-function quizGame(){
+    let ans = prompt("What is 5 + 5 ?");
 
-let answer =
-prompt("What is 5 + 5 ?");
+    if (ans == "10") {
 
+        alert("✅ Correct!");
 
-if(answer=="10"){
+    } else {
 
-alert("🎉 Correct!");
+        alert("❌ Wrong Answer!");
 
-}
-
-else{
-
-alert("❌ Try Again!");
+    }
 
 }
-
-}
-
-
-
-
-
-
 
 
 // AI
 
+function askAI() {
 
-function askAI(){
+    let q = document.getElementById("question").value;
 
-let q =
-document.getElementById("question").value;
+    if (q == "") {
 
+        return;
 
-let ai =
-document.getElementById("aiText");
+    }
 
-
-if(q){
-
-ai.innerHTML =
-"🤖 You asked: "+q+
-"<br>💡 Keep learning and exploring!";
+    document.getElementById("aiText").innerHTML =
+        "🤖 You asked: " + q +
+        "<br><br>💡 Keep learning every day!";
 
 }
-
-}
-
-
-
-
-
-
 
 
 // Notes
 
+function saveNote() {
 
-function saveNote(){
+    let note = document.getElementById("noteInput").value;
 
-let note =
-document.getElementById("noteInput").value;
+    localStorage.setItem("sujayNote", note);
 
-
-localStorage.setItem("sujayNote",note);
-
-
-document.getElementById("savedNotes").innerHTML =
-"✅ Note Saved!";
+    document.getElementById("savedNotes").innerHTML =
+        "✅ Note Saved";
 
 }
 
 
+function clearNotes() {
 
-function clearNotes(){
+    localStorage.removeItem("sujayNote");
 
-localStorage.removeItem("sujayNote");
+    document.getElementById("noteInput").value = "";
 
-
-document.getElementById("noteInput").value="";
-
-document.getElementById("savedNotes").innerHTML =
-"🗑 Notes Cleared!";
+    document.getElementById("savedNotes").innerHTML =
+        "🗑 Notes Cleared";
 
 }
 
 
-
-
-
-
-
-
-// Date
-
+// Today's Date
 
 document.getElementById("todayDate").innerHTML =
-
-"📅 "+new Date().toDateString();
-
-
-
-
-
-
-
+"📅 " + new Date().toDateString();// ===================================
+// SUJAY HUB - PART B
+// Stopwatch + Quotes
+// ===================================
 
 // Stopwatch
 
-
-let sec=0;
-
+let sec = 0;
 let stopwatch;
 
+function startStopwatch() {
 
-function startStopwatch(){
+    clearInterval(stopwatch);
 
+    stopwatch = setInterval(function () {
 
-clearInterval(stopwatch);
+        sec++;
 
+        let h = Math.floor(sec / 3600);
+        let m = Math.floor((sec % 3600) / 60);
+        let s = sec % 60;
 
-stopwatch=setInterval(()=>{
+        h = String(h).padStart(2, "0");
+        m = String(m).padStart(2, "0");
+        s = String(s).padStart(2, "0");
 
+        document.getElementById("stopwatch").innerHTML =
+            h + ":" + m + ":" + s;
 
-sec++;
-
-
-let h=Math.floor(sec/3600);
-
-let m=Math.floor((sec%3600)/60);
-
-let s=sec%60;
-
-
-document.getElementById("stopwatch").innerHTML =
-
-h+":"+m+":"+s;
-
-
-},1000);
-
+    }, 1000);
 
 }
 
+function stopStopwatch() {
+    clearInterval(stopwatch);
+}
 
+function resetStopwatch() {
 
-function stopStopwatch(){
+    clearInterval(stopwatch);
 
-clearInterval(stopwatch);
+    sec = 0;
+
+    document.getElementById("stopwatch").innerHTML =
+        "00:00:00";
 
 }
 
+// Today's Date
 
-
-function resetStopwatch(){
-
-clearInterval(stopwatch);
-
-sec=0;
-
-document.getElementById("stopwatch").innerHTML=
-"00:00:00";
-
-}
-
-
-
-
-
+document.getElementById("todayDate").innerHTML =
+    "📅 " + new Date().toDateString();
 
 
 // Quotes
 
-
-let quotes=[
+let quotes = [
 
 "🚀 Never Give Up!",
-
 "📚 Study Smart!",
-
 "🎮 Have Fun!",
-
 "🔥 Keep Improving!",
-
-"⭐ Believe In Yourself!"
+"⭐ Believe In Yourself!",
+"💯 Practice Makes Perfect!",
+"🏆 Success Comes From Hard Work!",
+"🌈 Every Day Is A New Chance!",
+"🎯 Focus On Your Goal!",
+"😄 Keep Smiling!"
 
 ];
 
+function newQuote() {
 
+    let random = Math.floor(Math.random() * quotes.length);
 
-function newQuote(){
+    document.getElementById("quote").innerHTML =
+        quotes[random];
 
-let random =
-Math.floor(Math.random()*quotes.length);
+}
 
+newQuote();
 
-document.getElementById("quote").innerHTML =
-quotes[random];
+// Change quote every 5 seconds
 
-}let mathsQuestions = [
+setInterval(newQuote, 5000);// ===================================
+// SUJAY HUB - PART C
+// 50 Maths Questions
+// ===================================
+
+let mathsQuestions = [
 ["5 + 7",12],
 ["9 + 8",17],
 ["15 - 6",9],
 ["20 - 9",11],
-["6 * 7",42],
-["8 * 8",64],
-["81 / 9",9],
-["100 / 10",10],
+["6 × 7",42],
+["8 × 8",64],
+["81 ÷ 9",9],
+["100 ÷ 10",10],
 ["25 + 35",60],
 ["50 - 25",25],
-["12 * 5",60],
-["144 / 12",12],
+["12 × 5",60],
+["144 ÷ 12",12],
 ["30 + 45",75],
 ["90 - 40",50],
-["11 * 11",121],
-["15 * 3",45],
-["200 / 20",10],
+["11 × 11",121],
+["15 × 3",45],
+["200 ÷ 20",10],
 ["75 + 25",100],
 ["60 - 35",25],
-["14 * 4",56],
-["16 * 5",80],
-["225 / 15",15],
+["14 × 4",56],
+["16 × 5",80],
+["225 ÷ 15",15],
 ["40 + 60",100],
 ["99 - 49",50],
-["13 * 6",78],
-["18 / 3",6],
-["7 * 9",63],
+["13 × 6",78],
+["18 ÷ 3",6],
+["7 × 9",63],
 ["55 + 45",100],
 ["70 - 22",48],
-["12 * 12",144],
-["300 / 10",30],
+["12 × 12",144],
+["300 ÷ 10",30],
 ["45 + 55",100],
 ["80 - 30",50],
-["25 * 4",100],
-["36 / 6",6],
+["25 × 4",100],
+["36 ÷ 6",6],
 ["19 + 21",40],
-["90 / 9",10],
-["17 * 5",85],
+["90 ÷ 9",10],
+["17 × 5",85],
 ["150 - 50",100],
-["22 * 2",44],
-["400 / 20",20],
+["22 × 2",44],
+["400 ÷ 20",20],
 ["33 + 33",66],
 ["77 - 27",50],
-["9 * 12",108],
-["121 / 11",11],
+["9 × 12",108],
+["121 ÷ 11",11],
 ["15 + 85",100],
 ["200 - 75",125],
-["14 * 7",98],
-["18 * 5",90],
-["500 / 25",20]
+["14 × 7",98],
+["18 × 5",90],
+["500 ÷ 25",20]
 ];
-    </script>
 
+let currentQuestion = 0;
+let score = 0;// ===================================
+// SUJAY HUB - PART D
+// Quiz Logic
+// ===================================
 
-</body>
-</html>
+function startMathQuiz() {
+
+    currentQuestion = 0;
+    score = 0;
+
+    document.getElementById("mathScore").innerHTML =
+        "Score : 0 / 50";
+
+    showQuestion();
+
+}
+
+function showQuestion() {
+
+    if (currentQuestion >= mathsQuestions.length) {
+
+        document.getElementById("mathQuestion").innerHTML =
+            "🎉 Quiz Finished!";
+
+        document.getElementById("mathResult").innerHTML =
+            "🏆 Your Final Score: " + score + " / 50";
+
+        return;
+    }
+
+    document.getElementById("mathQuestion").innerHTML =
+        "Question " + (currentQuestion + 1) +
+        "<br><br>" +
+        mathsQuestions[currentQuestion][0];
+
+    document.getElementById("mathAnswer").value = "";
+
+}
+
+function checkMathAnswer() {
+
+    let answer = Number(
+        document.getElementById("mathAnswer").value
+    );
+
+    if (answer === mathsQuestions[currentQuestion][1]) {
+
+        score++;
+
+        document.getElementById("mathResult").innerHTML =
+            "✅ Correct!";
+
+    } else {
+
+        document.getElementById("mathResult").innerHTML =
+            "❌ Wrong! Correct Answer: " +
+            mathsQuestions[currentQuestion][1];
+
+    }
+
+    currentQuestion++;
+
+    document.getElementById("mathScore").innerHTML =
+        "Score : " + score + " / 50";
+
+    setTimeout(showQuestion, 1000);
+
+}
