@@ -679,4 +679,726 @@ console.log("🚀 SUJAY HUB PRO Loaded Successfully!");
 </script>
 
 </body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🐍 SUJAY Snake Game</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#05010f;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+overflow:hidden;
+color:white;
+}
+
+/* Background Glow */
+
+.bg{
+position:fixed;
+width:350px;
+height:350px;
+border-radius:50%;
+filter:blur(120px);
+opacity:.6;
+z-index:-1;
+animation:move 8s infinite alternate;
+}
+
+.bg1{
+background:#00ffff;
+left:-120px;
+top:-120px;
+}
+
+.bg2{
+background:#ff00ff;
+right:-120px;
+bottom:-120px;
+}
+
+@keyframes move{
+
+from{
+transform:translateY(0) scale(1);
+}
+
+to{
+transform:translateY(120px) scale(1.2);
+}
+
+}
+
+.container{
+text-align:center;
+}
+
+h1{
+font-size:48px;
+margin-bottom:15px;
+color:#00ffff;
+text-shadow:0 0 20px cyan;
+}
+
+#score{
+font-size:24px;
+margin-bottom:15px;
+}
+
+canvas{
+background:#111;
+border:4px solid cyan;
+border-radius:20px;
+box-shadow:0 0 30px cyan;
+}
+
+button{
+margin-top:20px;
+padding:12px 28px;
+font-size:18px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+background:linear-gradient(45deg,#00ffff,#ff00ff);
+color:white;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg bg1"></div>
+<div class="bg bg2"></div>
+
+<div class="container">
+
+<h1>🐍 SUJAY SNAKE</h1>
+
+<div id="score">Score : 0</div>
+
+<canvas id="game" width="400" height="400"></canvas>
+
+<br>
+
+<button onclick="restartGame()">🔄 Restart</button>
+
+</div>
+
+<script>
+
+const canvas=document.getElementById("game");
+const ctx=canvas.getContext("2d");
+
+const box=20;
+
+let snake=[
+{x:200,y:200}
+];
+
+let food={
+x:Math.floor(Math.random()*20)*box,
+y:Math.floor(Math.random()*20)*box
+};
+
+let score=0;
+
+let direction="RIGHT";
+
+document.addEventListener("keydown",changeDirection);
+
+function changeDirection(e){
+
+if(e.key==="ArrowUp" && direction!="DOWN")
+direction="UP";
+
+if(e.key==="ArrowDown" && direction!="UP")
+direction="DOWN";
+
+if(e.key==="ArrowLeft" && direction!="RIGHT")
+direction="LEFT";
+
+if(e.key==="ArrowRight" && direction!="LEFT")
+direction="RIGHT";
+
+}
+
+function draw(){
+
+ctx.fillStyle="#111";
+ctx.fillRect(0,0,400,400);
+
+ctx.fillStyle="lime";
+
+for(let i=0;i<snake.length;i++){
+
+ctx.fillRect(
+snake[i].x,
+snake[i].y,
+box-2,
+box-2
+);
+
+}
+
+ctx.fillStyle="red";
+
+ctx.fillRect(food.x,food.y,box-2,box-2);
+
+let headX=snake[0].x;
+let headY=snake[0].y;
+if(direction==="UP") headY-=box;
+if(direction==="DOWN") headY+=box;
+if(direction==="LEFT") headX-=box;
+if(direction==="RIGHT") headX+=box;
+
+// Eat Food
+if(headX===food.x && headY===food.y){
+
+score++;
+
+document.getElementById("score").innerHTML="Score : "+score;
+
+food={
+x:Math.floor(Math.random()*20)*box,
+y:Math.floor(Math.random()*20)*box
+};
+
+}else{
+
+snake.pop();
+
+}
+
+// New Head
+const newHead={
+x:headX,
+y:headY
+};
+
+// Game Over
+if(
+
+headX<0 ||
+headY<0 ||
+headX>=400 ||
+headY>=400 ||
+
+snake.some(function(part){
+
+return part.x===headX && part.y===headY;
+
+})
+
+){
+
+clearInterval(game);
+
+alert("💥 Game Over!\n\nYour Score: "+score);
+
+return;
+
+}
+
+snake.unshift(newHead);
+
+}
+
+// Restart
+function restartGame(){
+
+location.reload();
+
+}
+
+// Start Game
+const game=setInterval(draw,120);
+
+</script>
+
+</body>
+</html>// ==========================
+// SNAKE GAME 2A - PREMIUM
+// ==========================
+
+// High Score
+let highScore = localStorage.getItem("snakeHighScore") || 0;
+
+const highScoreText = document.createElement("h2");
+highScoreText.innerHTML = "🏆 High Score : " + highScore;
+highScoreText.style.marginTop = "10px";
+highScoreText.style.color = "#00ffff";
+
+document.querySelector(".container").insertBefore(
+    highScoreText,
+    document.getElementById("game")
+);
+
+// Snake Colors
+function drawSnake(){
+
+    for(let i=0;i<snake.length;i++){
+
+        ctx.fillStyle = i===0 ? "#00ffff" : "#00ff66";
+
+        ctx.fillRect(
+            snake[i].x,
+            snake[i].y,
+            box-2,
+            box-2
+        );
+
+    }
+
+}
+
+// Animated Food
+function drawFood(){
+
+    ctx.beginPath();
+
+    ctx.fillStyle = "#ff3333";
+
+    ctx.arc(
+        food.x + box/2,
+        food.y + box/2,
+        8,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.fill();
+
+}// ==========================
+// SNAKE GAME 2B - PREMIUM
+// ==========================
+
+// Save High Score
+function updateHighScore(){
+
+    if(score > highScore){
+
+        highScore = score;
+
+        localStorage.setItem("snakeHighScore", highScore);
+
+        highScoreText.innerHTML =
+        "🏆 High Score : " + highScore;
+
+    }
+
+}
+
+// Premium Draw Function
+function draw(){
+
+    ctx.fillStyle="#111";
+    ctx.fillRect(0,0,400,400);
+
+    drawFood();
+    drawSnake();
+
+    let headX = snake[0].x;
+    let headY = snake[0].y;
+
+    if(direction==="UP") headY -= box;
+    if(direction==="DOWN") headY += box;
+    if(direction==="LEFT") headX -= box;
+    if(direction==="RIGHT") headX += box;
+
+    // Eat Food
+    if(headX===food.x && headY===food.y){
+
+        score++;
+
+        document.getElementById("score").innerHTML =
+        "Score : " + score;
+
+        updateHighScore();
+
+        // Increase Speed
+        if(score % 5 === 0){
+
+            clearInterval(game);
+
+            speed = Math.max(50, speed - 10);
+
+            game = setInterval(draw, speed);
+
+        }
+
+        food={
+            x:Math.floor(Math.random()*20)*box,
+            y:Math.floor(Math.random()*20)*box
+        };
+
+    }else{
+
+        snake.pop();
+
+    }
+
+    const newHead={
+        x:headX,
+        y:headY
+    };
+
+    // Game Over
+    if(
+        headX<0 ||
+        headY<0 ||
+        headX>=400 ||
+        headY>=400 ||
+        snake.some(part => part.x===headX && part.y===headY)
+    ){
+
+        clearInterval(game);
+
+        updateHighScore();
+
+        setTimeout(function(){
+
+            alert(
+                "💥 GAME OVER!\n\n" +
+                "🏆 Score : " + score +
+                "\n⭐ High Score : " + highScore
+            );
+
+        },100);
+
+        return;
+
+    }
+
+    snake.unshift(newHead);
+
+}
+
+// Game Speed
+let speed = 120;
+
+// Start Game
+let game = setInterval(draw, speed);
+
+// Console Message
+console.log("🐍 SUJAY PREMIUM SNAKE GAME READY!");
+html <!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>⭕ SUJAY Tic Tac Toe</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#05010f;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+overflow:hidden;
+color:white;
+}
+
+/* RGB Background */
+
+.bg{
+position:fixed;
+width:350px;
+height:350px;
+border-radius:50%;
+filter:blur(120px);
+opacity:.6;
+z-index:-1;
+animation:move 8s infinite alternate;
+}
+
+.bg1{
+background:#00ffff;
+left:-120px;
+top:-120px;
+}
+
+.bg2{
+background:#ff00ff;
+right:-120px;
+bottom:-120px;
+}
+
+@keyframes move{
+
+from{
+transform:translateY(0) scale(1);
+}
+
+to{
+transform:translateY(120px) scale(1.2);
+}
+
+}
+
+.container{
+text-align:center;
+}
+
+h1{
+font-size:50px;
+margin-bottom:15px;
+color:#00ffff;
+text-shadow:0 0 20px cyan;
+}
+
+#status{
+font-size:24px;
+margin-bottom:20px;
+}
+
+.board{
+display:grid;
+grid-template-columns:repeat(3,120px);
+grid-template-rows:repeat(3,120px);
+gap:10px;
+justify-content:center;
+}
+
+.cell{
+width:120px;
+height:120px;
+background:#111;
+border:3px solid cyan;
+border-radius:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:60px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+.cell:hover{
+background:#1b1b1b;
+box-shadow:0 0 20px cyan;
+}
+
+button{
+margin-top:25px;
+padding:12px 28px;
+font-size:18px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+background:linear-gradient(45deg,#00ffff,#ff00ff);
+color:white;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="bg bg1"></div>
+<div class="bg bg2"></div>
+
+<div class="container">
+
+<h1>⭕ TIC TAC TOE</h1>
+
+<div id="status">Player X Turn</div>
+
+<div class="board">
+
+<div class="cell" data-index="0"></div>
+<div class="cell" data-index="1"></div>
+<div class="cell" data-index="2"></div>
+
+<div class="cell" data-index="3"></div>
+<div class="cell" data-index="4"></div>
+<div class="cell" data-index="5"></div>
+
+<div class="cell" data-index="6"></div>
+<div class="cell" data-index="7"></div>
+<div class="cell" data-index="8"></div>
+
+</div>
+
+<button onclick="restartGame()">🔄 Restart</button>
+
+</div>
+
+<script>
+
+const cells=document.querySelectorAll(".cell");
+
+const status=document.getElementById("status");
+
+let board=[
+"","","",
+"","","",
+"","",""
+];
+
+let currentPlayer="X";
+
+let gameRunning=true;
+
+const winPatterns=[
+
+[0,1,2],
+[3,4,5],
+[6,7,8],
+
+[0,3,6],
+[1,4,7],
+[2,5,8],
+
+[0,4,8],
+[2,4,6]
+
+];// =========================
+// TIC TAC TOE - PART 1B
+// =========================
+
+cells.forEach(function(cell){
+
+cell.addEventListener("click",cellClick);
+
+});
+
+function cellClick(){
+
+const index=this.getAttribute("data-index");
+
+if(board[index]!=="" || !gameRunning){
+
+return;
+
+}
+
+board[index]=currentPlayer;
+
+this.innerHTML=currentPlayer;
+
+checkWinner();
+
+}
+
+function checkWinner(){
+
+let won=false;
+
+for(let i=0;i<winPatterns.length;i++){
+
+const pattern=winPatterns[i];
+
+const a=board[pattern[0]];
+const b=board[pattern[1]];
+const c=board[pattern[2]];
+
+if(a==="" || b==="" || c===""){
+
+continue;
+
+}
+
+if(a===b && b===c){
+
+won=true;
+
+cells[pattern[0]].style.background="#00ff66";
+cells[pattern[1]].style.background="#00ff66";
+cells[pattern[2]].style.background="#00ff66";
+
+break;
+
+}
+
+}
+
+if(won){
+
+status.innerHTML="🏆 Player " + currentPlayer + " Wins!";
+
+gameRunning=false;
+
+return;
+
+}
+
+if(!board.includes("")){
+
+status.innerHTML="🤝 Match Draw!";
+
+gameRunning=false;
+
+return;
+
+}
+
+currentPlayer=currentPlayer==="X" ? "O" : "X";
+
+status.innerHTML="Player " + currentPlayer + " Turn";
+
+}
+
+function restartGame(){
+
+board=[
+"","","",
+"","","",
+"","",""
+];
+
+currentPlayer="X";
+gameRunning=true;
+
+status.innerHTML="Player X Turn";
+
+cells.forEach(function(cell){
+
+cell.innerHTML="";
+cell.style.background="#111";
+
+});
+
+}
+
+console.log("⭕ SUJAY TIC TAC TOE READY!");
+
+</script>
+
+</body>
 </html>
