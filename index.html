@@ -1,543 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>🎮 SUJAY GAMING HUB</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
 <style>
-
-/* ===== PART B CSS HERE ===== */
-
-</style>
-
-</head>
-
-<body>
-
-<!-- Animated Background -->
-
-<div class="bg bg1"></div>
-<div class="bg bg2"></div>
-<div class="bg bg3"></div>
-
-<!-- Loader -->
-
-<div id="loader">
-
-<h1>🎮 SUJAY GAMING HUB</h1>
-
-<p>Loading...</p>
-
-</div>
-
-<!-- Navigation -->
-
-<nav>
-
-<h1>🎮 SUJAY GAMING HUB</h1>
-
-<ul>
-
-<li><a href="#">Home</a></li>
-
-<li><a href="#">Games</a></li>
-
-<li><a href="#">Leaderboard</a></li>
-
-<li><a href="#">Profile</a></li>
-
-<li><a href="#">Contact</a></li>
-
-</ul>
-
-</nav>
-
-<!-- Hero -->
-
-<section class="hero">
-
-<h1>WELCOME GAMER</h1>
-
-<p>
-Play • Compete • Win • Level Up
-</p>
-
-<div id="clock">
-00:00:00
-</div>
-
-<input
-type="text"
-id="search"
-placeholder="🔍 Search Games">
-
-<br>
-
-<button onclick="changeTheme()">
-🎨 Theme
-</button>
-
-<button onclick="shareSite()">
-📤 Share
-</button>
-
-<button onclick="playMusic()">
-🎵 Music
-</button>
-
-</section>
-
-<!-- Game Cards -->
-
-<section class="cards">
-
-<div class="card">
-
-<h2>🎮 Action Games</h2>
-
-<p>
-Fast action and adventure.
-</p>
-
-<button>
-Play
-</button>
-
-</div>
-
-<div class="card">
-
-<h2>🏎 Racing Games</h2>
-
-<p>
-Drive super fast cars.
-</p>
-
-<button>
-Play
-</button>
-
-</div>
-
-<div class="card">
-
-<h2>⚽ Sports Games</h2>
-
-<p>
-Football • Cricket • More
-</p>
-
-<button>
-Play
-</button>
-
-</div>
-
-<div class="card">
-
-<h2>🧩 Puzzle Games</h2>
-
-<p>
-Challenge your brain.
-</p>
-
-<button>
-Play
-</button>
-
-</div>
-
-<div class="card">
-
-<h2>👤 Gamer Profile</h2>
-
-<p id="player">
-Player : Sujay
-</p>
-
-<p id="xp">
-⭐ XP : 0
-</p>
-
-<p id="level">
-🏆 Level : 1
-</p>
-
-<button>
-Profile
-</button>
-
-</div>
-
-<div class="card">
-
-<h2>🏆 Daily Challenge</h2>
-
-<p id="challenge">
-Complete today's challenge!
-</p>
-
-<button onclick="completeChallenge()">
-Claim XP
-</button>
-
-</div>
-
-</section>
-
-<!-- Quote -->
-
-<section>
-
-<h2>💬 Gamer Quote</h2>
-
-<h3 id="quote">
-
-🎮 Winners Never Quit!
-
-</h3>
-
-</section>
-
-<!-- Footer -->
-
-<footer>
-
-<h2>🎮 SUJAY GAMING HUB</h2>
-
-<p>
-Made By Sujay ❤️
-</p>
-
-</footer>
-
-<script>
-
-/* ===== PART C + D JS HERE ===== */
-
-</script>
-
-</body>
-</html>
-// ===============================
-// SUJAY GAMING HUB - PART C
-// ===============================
-
-// Live Clock
-function updateClock() {
-    const now = new Date();
-
-    const h = String(now.getHours()).padStart(2, "0");
-    const m = String(now.getMinutes()).padStart(2, "0");
-    const s = String(now.getSeconds()).padStart(2, "0");
-
-    document.getElementById("clock").innerHTML =
-        h + ":" + m + ":" + s;
-}
-
-setInterval(updateClock, 1000);
-updateClock();
-
-
-// XP System
-
-let xp = 0;
-let level = 1;
-
-function completeChallenge(){
-
-    xp += 100;
-
-    if(xp >= level * 300){
-        level++;
-    }
-
-    document.getElementById("xp").innerHTML =
-        "⭐ XP : " + xp;
-
-    document.getElementById("level").innerHTML =
-        "🏆 Level : " + level;
-
-    document.getElementById("challenge").innerHTML =
-        "✅ Challenge Completed!";
-}
-
-
-// Search
-
-const search = document.getElementById("search");
-
-search.addEventListener("keyup", function(){
-
-    let value = search.value.toLowerCase();
-
-    document.querySelectorAll(".card").forEach(function(card){
-
-        if(card.innerText.toLowerCase().includes(value)){
-
-            card.style.display = "block";
-
-        }else{
-
-            card.style.display = "none";
-
-        }
-
-    });
-
-});
-
-
-// Theme
-
-let dark = true;
-
-function changeTheme(){
-
-    if(dark){
-
-        document.body.style.background="#ffffff";
-        document.body.style.color="#111111";
-
-    }else{
-
-        document.body.style.background="#050505";
-        document.body.style.color="#ffffff";
-
-    }
-
-    dark = !dark;
-
-}
-
-
-// Share
-
-function shareSite(){
-
-    if(navigator.share){
-
-        navigator.share({
-
-            title:"SUJAY GAMING HUB",
-
-            text:"Check out my Gaming Website!",
-
-            url:location.href
-
-        });
-
-    }else{
-
-        alert(location.href);
-
-    }
-
-}
-
-
-// Music
-
-function playMusic(){
-
-    alert("🎵 Music feature coming soon!");
-
-}
-
-
-// Quotes
-
-const quotes=[
-
-"🎮 Winners Never Quit!",
-
-"🔥 Level Up Every Day!",
-
-"🏆 Be The Champion!",
-
-"⚡ Keep Grinding!",
-
-"💎 Play Like A Pro!",
-
-"🚀 Victory Is Yours!"
-
-];
-
-function randomQuote(){
-
-    let r=Math.floor(Math.random()*quotes.length);
-
-    document.getElementById("quote").innerHTML=quotes[r];
-
-}
-
-setInterval(randomQuote,5000);
-
-randomQuote();// ===============================
-// SUJAY GAMING HUB - PART C
-// ===============================
-
-// Live Clock
-function updateClock() {
-    const now = new Date();
-
-    const h = String(now.getHours()).padStart(2, "0");
-    const m = String(now.getMinutes()).padStart(2, "0");
-    const s = String(now.getSeconds()).padStart(2, "0");
-
-    document.getElementById("clock").innerHTML =
-        h + ":" + m + ":" + s;
-}
-
-setInterval(updateClock, 1000);
-updateClock();
-
-
-// XP System
-
-let xp = 0;
-let level = 1;
-
-function completeChallenge(){
-
-    xp += 100;
-
-    if(xp >= level * 300){
-        level++;
-    }
-
-    document.getElementById("xp").innerHTML =
-        "⭐ XP : " + xp;
-
-    document.getElementById("level").innerHTML =
-        "🏆 Level : " + level;
-
-    document.getElementById("challenge").innerHTML =
-        "✅ Challenge Completed!";
-}
-
-
-// Search
-
-const search = document.getElementById("search");
-
-search.addEventListener("keyup", function(){
-
-    let value = search.value.toLowerCase();
-
-    document.querySelectorAll(".card").forEach(function(card){
-
-        if(card.innerText.toLowerCase().includes(value)){
-
-            card.style.display = "block";
-
-        }else{
-
-            card.style.display = "none";
-
-        }
-
-    });
-
-});
-
-
-// Theme
-
-let dark = true;
-
-function changeTheme(){
-
-    if(dark){
-
-        document.body.style.background="#ffffff";
-        document.body.style.color="#111111";
-
-    }else{
-
-        document.body.style.background="#050505";
-        document.body.style.color="#ffffff";
-
-    }
-
-    dark = !dark;
-
-}
-
-
-// Share
-
-function shareSite(){
-
-    if(navigator.share){
-
-        navigator.share({
-
-            title:"SUJAY GAMING HUB",
-
-            text:"Check out my Gaming Website!",
-
-            url:location.href
-
-        });
-
-    }else{
-
-        alert(location.href);
-
-    }
-
-}
-
-
-// Music
-
-function playMusic(){
-
-    alert("🎵 Music feature coming soon!");
-
-}
-
-
-// Quotes
-
-const quotes=[
-
-"🎮 Winners Never Quit!",
-
-"🔥 Level Up Every Day!",
-
-"🏆 Be The Champion!",
-
-"⚡ Keep Grinding!",
-
-"💎 Play Like A Pro!",
-
-"🚀 Victory Is Yours!"
-
-];
-
-function randomQuote(){
-
-    let r=Math.floor(Math.random()*quotes.length);
-
-    document.getElementById("quote").innerHTML=quotes[r];
-
-}
-
-setInterval(randomQuote,5000);
-
-randomQuote();
-/* ===================================
-   SUJAY GAMING HUB - PART B
-   Crazy RGB Gaming CSS
-=================================== */
 
 *{
 margin:0;
@@ -548,12 +18,9 @@ font-family:'Poppins',sans-serif;
 
 body{
 background:#050505;
-color:#fff;
+color:white;
 overflow-x:hidden;
-transition:.5s;
 }
-
-/* Animated RGB Background */
 
 .bg{
 position:fixed;
@@ -567,48 +34,47 @@ animation:float 8s infinite alternate;
 
 .bg1{
 background:#ff00ff;
-top:-100px;
-left:-100px;
+top:-120px;
+left:-120px;
 }
 
 .bg2{
 background:#00ffff;
-right:-100px;
+right:-120px;
 top:30%;
 }
 
 .bg3{
 background:#00ff66;
-bottom:-100px;
+bottom:-120px;
 left:35%;
 }
 
 @keyframes float{
-from{transform:translateY(0) scale(1);}
-to{transform:translateY(120px) scale(1.2);}
+from{
+transform:translateY(0) scale(1);
 }
-
-/* Loader */
+to{
+transform:translateY(120px) scale(1.2);
+}
+}
 
 #loader{
 position:fixed;
 inset:0;
 background:#000;
 display:flex;
-flex-direction:column;
 justify-content:center;
 align-items:center;
+flex-direction:column;
 z-index:9999;
-color:white;
 }
 
 #loader h1{
-font-size:50px;
+font-size:60px;
 color:#00ffff;
 text-shadow:0 0 20px cyan;
 }
-
-/* Navigation */
 
 nav{
 display:flex;
@@ -619,12 +85,10 @@ background:rgba(255,255,255,.08);
 backdrop-filter:blur(15px);
 position:sticky;
 top:0;
-z-index:100;
 }
 
 nav h1{
 color:#00ffff;
-text-shadow:0 0 15px cyan;
 }
 
 nav ul{
@@ -634,86 +98,56 @@ gap:25px;
 }
 
 nav a{
-color:white;
 text-decoration:none;
-font-weight:600;
-transition:.3s;
+color:white;
+font-weight:bold;
 }
-
-nav a:hover{
-color:#00ffff;
-text-shadow:0 0 10px cyan;
-}
-
-/* Hero */
 
 .hero{
-text-align:center;
 padding:80px 20px;
+text-align:center;
 }
 
 .hero h1{
 font-size:70px;
 color:#00ffff;
-text-shadow:
-0 0 10px cyan,
-0 0 25px cyan,
-0 0 50px magenta;
+text-shadow:0 0 20px cyan;
 }
 
 .hero p{
 font-size:24px;
-margin-top:15px;
-color:#ddd;
+margin:20px 0;
 }
 
 #clock{
-margin:25px auto;
-width:230px;
-padding:15px;
-border-radius:20px;
 font-size:32px;
+margin:20px auto;
+padding:15px;
+width:220px;
+border-radius:20px;
 background:rgba(255,255,255,.1);
-backdrop-filter:blur(12px);
-box-shadow:0 0 20px cyan;
 }
 
 #search{
 width:80%;
 max-width:500px;
 padding:15px;
-margin-top:20px;
 border:none;
-outline:none;
 border-radius:30px;
-background:#111;
-color:white;
 font-size:18px;
+margin-top:20px;
 }
-
-/* Buttons */
 
 button{
 padding:14px 30px;
-margin:12px;
+margin:10px;
 border:none;
 border-radius:30px;
-cursor:pointer;
-font-size:16px;
-font-weight:bold;
 background:linear-gradient(45deg,#00ffff,#ff00ff);
 color:white;
-transition:.3s;
+cursor:pointer;
+font-size:16px;
 }
-
-button:hover{
-transform:scale(1.08);
-box-shadow:
-0 0 20px cyan,
-0 0 40px magenta;
-}
-
-/* Cards */
 
 .cards{
 display:flex;
@@ -726,67 +160,33 @@ padding:40px;
 .card{
 width:300px;
 padding:30px;
-border-radius:25px;
+border-radius:20px;
 background:rgba(255,255,255,.08);
-border:1px solid rgba(255,255,255,.2);
 backdrop-filter:blur(15px);
 text-align:center;
 transition:.4s;
 }
 
 .card:hover{
-transform:translateY(-12px);
-box-shadow:
-0 0 25px cyan,
-0 0 40px magenta;
+transform:translateY(-10px);
 }
-
-.card h2{
-margin-bottom:15px;
-color:#00ffff;
-}
-
-.card p{
-margin-bottom:20px;
-color:#ddd;
-}
-
-/* Sections */
 
 section{
 padding:60px 20px;
 text-align:center;
 }
 
-section h2{
-font-size:40px;
-margin-bottom:25px;
-color:#00ffff;
-}
-
-#quote{
-font-size:30px;
-color:#00ff99;
-text-shadow:0 0 10px #00ff99;
-}
-
-/* Footer */
-
 footer{
-margin-top:60px;
+background:#000;
 padding:30px;
 text-align:center;
-background:#000;
-color:#bbb;
+margin-top:40px;
 }
-
-/* Mobile */
 
 @media(max-width:768px){
 
 nav{
 flex-direction:column;
-gap:15px;
 }
 
 nav ul{
@@ -795,24 +195,351 @@ justify-content:center;
 }
 
 .hero h1{
-font-size:42px;
-}
-
-.cards{
-flex-direction:column;
-align-items:center;
+font-size:40px;
 }
 
 .card{
 width:90%;
 }
 
-#search{
-width:95%;
 }
 
-button{
-width:90%;
+</style>
+
+</head>
+
+<body>
+
+<div class="bg bg1"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+
+<div id="loader">
+<h1>🎮 SUJAY GAMING HUB</h1>
+<p>Loading...</p>
+</div>
+
+<nav>
+
+<h1>🎮 SUJAY HUB</h1>
+
+<ul>
+
+<li><a href="#">Home</a></li>
+<li><a href="#">Games</a></li>
+<li><a href="#">Profile</a></li>
+<li><a href="#">Leaderboard</a></li>
+<li><a href="#">Contact</a></li>
+
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<h1>WELCOME GAMER</h1>
+
+<p>Play • Compete • Win</p>
+
+<div id="clock">00:00:00</div>
+
+<input id="search" placeholder="🔍 Search Games">
+
+<br>
+
+<button onclick="changeTheme()">🎨 Theme</button>
+<button onclick="shareSite()">📤 Share</button>
+<button onclick="playMusic()">🎵 Music</button>
+
+</section>
+
+<section class="cards"><div class="card">
+<h2>🎮 Action Games</h2>
+<p>Play exciting action games.</p>
+<button>Play</button>
+</div>
+
+<div class="card">
+<h2>🏎 Racing Games</h2>
+<p>Drive the fastest cars.</p>
+<button>Play</button>
+</div>
+
+<div class="card">
+<h2>⚽ Sports Games</h2>
+<p>Football, Cricket and more.</p>
+<button>Play</button>
+</div>
+
+<div class="card">
+<h2>🧩 Puzzle Games</h2>
+<p>Challenge your brain.</p>
+<button>Play</button>
+</div>
+
+<div class="card">
+<h2>🏆 Leaderboard</h2>
+<p>Top Gamers of the Week.</p>
+<button>View</button>
+</div>
+
+<div class="card">
+<h2>👤 Gamer Profile</h2>
+
+<p id="player">Player : Sujay</p>
+
+<p id="xp">⭐ XP : 0</p>
+
+<p id="level">🏆 Level : 1</p>
+
+<button>Profile</button>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>🔥 Daily Challenge</h2>
+
+<p id="challenge">
+
+Complete today's mission to earn XP!
+
+</p>
+
+<button onclick="completeChallenge()">
+
+Claim Reward
+
+</button>
+
+</section>
+
+<section>
+
+<h2>💬 Gaming Quote</h2>
+
+<h3 id="quote">
+
+🎮 Winners Never Quit!
+
+</h3>
+
+</section>
+
+<footer>
+
+<h2>🎮 SUJAY GAMING HUB</h2>
+
+<p>
+
+Made By Sujay ❤️
+
+</p>
+
+</footer>
+
+<script>
+
+let xp = 0;
+let level = 1;
+
+function updateClock(){
+
+const now = new Date();
+
+document.getElementById("clock").innerHTML =
+String(now.getHours()).padStart(2,"0")+":"+
+String(now.getMinutes()).padStart(2,"0")+":"+
+String(now.getSeconds()).padStart(2,"0");
+
+}
+
+setInterval(updateClock,1000);
+
+updateClock();
+
+function completeChallenge(){
+
+xp += 100;
+
+if(xp >= level*300){
+
+level++;
+
+}
+
+document.getElementById("xp").innerHTML =
+"⭐ XP : " + xp;
+
+document.getElementById("level").innerHTML =
+"🏆 Level : " + level;
+
+document.getElementById("challenge").innerHTML =
+"✅ Challenge Completed!";
+
+}
+
+document.getElementById("search").addEventListener("keyup",function(){
+
+let value=this.value.toLowerCase();
+
+document.querySelectorAll(".card").forEach(function(card){
+
+card.style.display=
+card.innerText.toLowerCase().includes(value)
+? "block":"none";
+
+});
+
+});
+
+function changeTheme(){
+
+document.body.classList.toggle("light");
+
+}
+
+function shareSite(){
+
+if(navigator.share){
+
+navigator.share({
+
+title:"SUJAY GAMING HUB",
+
+text:"Play awesome games!",
+
+url:location.href
+
+});
+
+}else{
+
+alert(location.href);
+
 }
 
 }
+
+function playMusic(){
+
+alert("🎵 Music feature coming soon!");
+
+}
+
+const quotes=[
+"🎮 Winners Never Quit!",
+"🏆 Level Up!",
+"🔥 Play Every Day!",
+"💎 Become A Pro!",
+"🚀 Victory Awaits!"
+];
+
+function randomQuote(){
+
+document.getElementById("quote").innerHTML=
+quotes[Math.floor(Math.random()*quotes.length)];
+
+}
+
+setInterval(randomQuote,5000);
+
+randomQuote();// ===== PART 3 (FINAL) =====
+
+// Loading Screen
+window.addEventListener("load", function () {
+
+    const loader = document.getElementById("loader");
+
+    if(loader){
+
+        setTimeout(function(){
+
+            loader.style.opacity = "0";
+            loader.style.transition = "1s";
+
+            setTimeout(function(){
+
+                loader.style.display = "none";
+
+            },1000);
+
+        },1500);
+
+    }
+
+});
+
+// Card Hover Animation
+
+document.querySelectorAll(".card").forEach(function(card){
+
+    card.addEventListener("mouseenter",function(){
+
+        card.style.transform="translateY(-10px) scale(1.05)";
+        card.style.boxShadow="0 0 30px cyan";
+
+    });
+
+    card.addEventListener("mouseleave",function(){
+
+        card.style.transform="translateY(0)";
+        card.style.boxShadow="none";
+
+    });
+
+});
+
+// RGB Glow
+
+const colors=[
+"#ff00ff",
+"#00ffff",
+"#00ff66",
+"#ffff00",
+"#ff3300",
+"#0099ff"
+];
+
+let i=0;
+
+setInterval(function(){
+
+document.body.style.boxShadow=
+"inset 0 0 120px "+colors[i];
+
+i++;
+
+if(i>=colors.length){
+
+i=0;
+
+}
+
+},3000);
+
+// Keyboard Shortcut
+
+document.addEventListener("keydown",function(e){
+
+if(e.key==="g"||e.key==="G"){
+
+alert("🎮 Gaming Mode Activated!");
+
+}
+
+});
+
+// Footer Year
+
+document.querySelector("footer p").innerHTML=
+"Made By Sujay ❤️ | "+new Date().getFullYear();
+
+console.log("🎮 SUJAY GAMING HUB Loaded Successfully!");
+
+</script>
+
+</body>
+</html>
