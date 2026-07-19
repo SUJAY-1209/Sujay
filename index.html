@@ -72,7 +72,6 @@ transform:translateY(120px) scale(1.2);
 /* Loader */
 
 #loader{
-
 position:fixed;
 inset:0;
 background:#000;
@@ -81,30 +80,24 @@ justify-content:center;
 align-items:center;
 flex-direction:column;
 z-index:9999;
-
 }
 
 #loader h1{
-
 font-size:65px;
 color:#00ffff;
 text-shadow:
 0 0 15px cyan,
 0 0 40px cyan;
-
 }
 
 #loader p{
-
 margin-top:15px;
 font-size:22px;
-
 }
 
 /* Navbar */
 
 nav{
-
 position:sticky;
 top:0;
 display:flex;
@@ -114,68 +107,52 @@ padding:18px 40px;
 background:rgba(255,255,255,.08);
 backdrop-filter:blur(15px);
 z-index:100;
-
 }
 
 .logo{
-
 font-size:30px;
 font-weight:900;
 color:#00ffff;
-
 }
 
 nav ul{
-
 display:flex;
 gap:25px;
 list-style:none;
-
 }
 
 nav a{
-
 text-decoration:none;
 color:white;
 font-weight:600;
 transition:.3s;
-
 }
 
 nav a:hover{
-
 color:#00ffff;
-
 }
 
 /* Hero */
 
 .hero{
-
 padding:90px 20px;
 text-align:center;
-
 }
 
 .hero h1{
-
 font-size:75px;
 color:#00ffff;
 text-shadow:
 0 0 20px cyan,
 0 0 40px blue;
-
 }
 
 .hero p{
-
 font-size:24px;
 margin:20px 0;
-
 }
 
 #clock{
-
 width:230px;
 margin:20px auto;
 padding:15px;
@@ -183,11 +160,9 @@ font-size:30px;
 border-radius:20px;
 background:rgba(255,255,255,.08);
 box-shadow:0 0 20px cyan;
-
 }
 
 #search{
-
 width:85%;
 max-width:550px;
 padding:16px;
@@ -198,11 +173,9 @@ font-size:18px;
 margin-top:20px;
 background:#111;
 color:#fff;
-
 }
 
 button{
-
 padding:15px 30px;
 margin:10px;
 border:none;
@@ -213,23 +186,21 @@ font-weight:bold;
 background:linear-gradient(45deg,#00ffff,#ff00ff);
 color:white;
 transition:.3s;
-
+}
+button:hover{
+    transform:scale(1.08);
+    box-shadow:
+        0 0 25px cyan,
+        0 0 45px magenta;
 }
 
-button:hover{
-
-transform:scale(1.08);
-box-shadow:
-0 0 25px cyan,
-0 0 45px magenta;
-
-}/* Cards */
+/* Cards */
 
 .cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-padding:60px 40px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+    padding:60px 40px;
 }
 
 .card{
@@ -331,13 +302,11 @@ padding:20px;
 <div class="logo">🎮 SUJAY HUB</div>
 
 <ul>
-
 <li><a href="#">Home</a></li>
 <li><a href="#">Games</a></li>
 <li><a href="#">Profile</a></li>
 <li><a href="#">Leaderboard</a></li>
 <li><a href="#">Contact</a></li>
-
 </ul>
 
 </nav>
@@ -364,7 +333,8 @@ placeholder="🔍 Search Games">
 
 </section>
 
-<section class="cards"><div class="card">
+<section class="cards">
+<div class="card">
 <h2>🎮 Action Games</h2>
 <p>Fight, survive and become the champion.</p>
 <button>Play Now</button>
@@ -446,15 +416,11 @@ placeholder="🔍 Search Games">
 <div class="challenge">
 
 <h3 id="challengeText">
-
 Win one match today to earn bonus XP!
-
 </h3>
 
 <button onclick="completeChallenge()">
-
 Complete Challenge
-
 </button>
 
 </div>
@@ -481,9 +447,7 @@ Complete Challenge
 <h2>💬 Gaming Quote</h2>
 
 <h2 id="quote">
-
 🎮 Every Champion Was Once A Beginner.
-
 </h2>
 
 </section>
@@ -492,11 +456,7 @@ Complete Challenge
 
 <h2>🎮 SUJAY HUB PRO</h2>
 
-<p>
-
-Made By Sujay ❤️
-
-</p>
+<p>Made By Sujay ❤️</p>
 
 </footer>
 
@@ -504,84 +464,216 @@ Made By Sujay ❤️
 
 let xp = 0;
 let level = 1;
-let coins = 0// ===============================
-// PART 4 - FINAL
+let coins = 0;
+// ===============================
+// PART 4 - FINAL JAVASCRIPT
 // ===============================
 
-// Welcome Message
-setTimeout(function(){
+// Live Clock
+function updateClock(){
 
-    alert("🎮 Welcome to SUJAY HUB PRO!");
+const now = new Date();
 
-},1000);
+document.getElementById("clock").innerHTML =
+String(now.getHours()).padStart(2,"0")+":"+
+String(now.getMinutes()).padStart(2,"0")+":"+
+String(now.getSeconds()).padStart(2,"0");
 
+}
 
-// Auto XP Every 20 Seconds
-setInterval(function(){
-
-    xp += 25;
-
-    if(xp >= level * 500){
-
-        level++;
-
-        alert("🏆 Level Up! You reached Level " + level);
-
-    }
-
-    document.getElementById("xp").innerHTML =
-    "XP : " + xp;
-
-    document.getElementById("level").innerHTML =
-    "Level : " + level;
-
-},20000);
+setInterval(updateClock,1000);
+updateClock();
 
 
-// Premium Card Animation
+// Theme
+
+function changeTheme(){
+
+document.body.classList.toggle("light");
+
+}
+
+
+// Share
+
+function shareSite(){
+
+if(navigator.share){
+
+navigator.share({
+title:"SUJAY HUB PRO",
+text:"Play awesome games!",
+url:location.href
+});
+
+}else{
+
+alert(location.href);
+
+}
+
+}
+
+
+// Music
+
+function playMusic(){
+
+alert("🎵 Music feature coming soon!");
+
+}
+
+
+// Reward
+
+function claimReward(){
+
+coins += 500;
+
+document.getElementById("coins").innerHTML =
+"Coins : " + coins;
+
+document.getElementById("rewardText").innerHTML =
+"✅ Reward Claimed!";
+
+}
+
+
+// Gain XP
+
+function gainXP(){
+
+xp += 100;
+
+if(xp >= level*500){
+
+level++;
+
+}
+
+document.getElementById("xp").innerHTML =
+"XP : " + xp;
+
+document.getElementById("level").innerHTML =
+"Level : " + level;
+
+}
+
+
+// Daily Challenge
+
+function completeChallenge(){
+
+xp += 250;
+coins += 100;
+
+document.getElementById("xp").innerHTML =
+"XP : " + xp;
+
+document.getElementById("coins").innerHTML =
+"Coins : " + coins;
+
+document.getElementById("challengeText").innerHTML =
+"✅ Challenge Completed!";
+
+}
+
+
+// Search
+
+document.getElementById("search").addEventListener("keyup",function(){
+
+let value=this.value.toLowerCase();
+
 document.querySelectorAll(".card").forEach(function(card){
 
-    card.addEventListener("mouseenter",function(){
+card.style.display=
+card.innerText.toLowerCase().includes(value)
+? "block":"none";
 
-        card.style.transform="translateY(-12px) scale(1.05)";
-        card.style.boxShadow="0 0 35px cyan";
-
-    });
-
-    card.addEventListener("mouseleave",function(){
-
-        card.style.transform="translateY(0)";
-        card.style.boxShadow="none";
-
-    });
+});
 
 });
 
 
-// Keyboard Shortcuts
-document.addEventListener("keydown",function(e){
+// Quotes
 
-    if(e.key==="g" || e.key==="G"){
+const quotes=[
+"🎮 Winners Never Quit!",
+"🏆 Victory Awaits!",
+"🔥 Play Every Day!",
+"💎 Level Up!",
+"⚡ Never Give Up!"
+];
 
-        alert("🎮 Gaming Mode Activated!");
+setInterval(function(){
 
-    }
+document.getElementById("quote").innerHTML=
+quotes[Math.floor(Math.random()*quotes.length)];
 
-    if(e.key==="r" || e.key==="R"){
+},5000);
 
-        location.reload();
 
-    }
+// Loader
+
+window.addEventListener("load",function(){
+
+setTimeout(function(){
+
+document.getElementById("loader").style.display="none";
+
+},2000);
+
+});
+
+
+// Auto XP
+
+setInterval(function(){
+
+xp += 25;
+
+if(xp >= level*500){
+
+level++;
+
+}
+
+document.getElementById("xp").innerHTML =
+"XP : " + xp;
+
+document.getElementById("level").innerHTML =
+"Level : " + level;
+
+},20000);
+
+
+// Card Animation
+
+document.querySelectorAll(".card").forEach(function(card){
+
+card.addEventListener("mouseenter",function(){
+
+card.style.transform="translateY(-12px) scale(1.05)";
+card.style.boxShadow="0 0 35px cyan";
+
+});
+
+card.addEventListener("mouseleave",function(){
+
+card.style.transform="";
+card.style.boxShadow="";
+
+});
 
 });
 
 
 // Footer Year
+
 document.querySelector("footer p").innerHTML =
 "Made By Sujay ❤️ | " + new Date().getFullYear();
 
-
-// Console Message
 console.log("🚀 SUJAY HUB PRO Loaded Successfully!");
 
 </script>
