@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -7,11 +8,11 @@
 
 <title>🎮 SUJAY GAMING HUB</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
 <style>
 
-/* PART B CSS HERE */
+/* ===== PART B CSS HERE ===== */
 
 </style>
 
@@ -25,144 +26,517 @@
 <div class="bg bg2"></div>
 <div class="bg bg3"></div>
 
-<!-- Header -->
+<!-- Loader -->
 
-<header>
+<div id="loader">
 
 <h1>🎮 SUJAY GAMING HUB</h1>
 
-<p>Play • Compete • Win 🏆</p>
+<p>Loading...</p>
 
-<div id="clock">00:00:00</div>
+</div>
+
+<!-- Navigation -->
+
+<nav>
+
+<h1>🎮 SUJAY GAMING HUB</h1>
+
+<ul>
+
+<li><a href="#">Home</a></li>
+
+<li><a href="#">Games</a></li>
+
+<li><a href="#">Leaderboard</a></li>
+
+<li><a href="#">Profile</a></li>
+
+<li><a href="#">Contact</a></li>
+
+</ul>
+
+</nav>
+
+<!-- Hero -->
+
+<section class="hero">
+
+<h1>WELCOME GAMER</h1>
+
+<p>
+Play • Compete • Win • Level Up
+</p>
+
+<div id="clock">
+00:00:00
+</div>
 
 <input
 type="text"
 id="search"
 placeholder="🔍 Search Games">
 
-<div class="buttons">
+<br>
 
-<button onclick="changeTheme()">🎨 Theme</button>
+<button onclick="changeTheme()">
+🎨 Theme
+</button>
 
-<button onclick="shareSite()">📤 Share</button>
+<button onclick="shareSite()">
+📤 Share
+</button>
 
-<button onclick="playMusic()">🎵 Music</button>
+<button onclick="playMusic()">
+🎵 Music
+</button>
 
-</div>
+</section>
 
-</header>
-
-<!-- Main Cards -->
+<!-- Game Cards -->
 
 <section class="cards">
 
 <div class="card">
-<h2>🎮 Play Games</h2>
-<p>Start playing awesome games.</p>
-<button>Play</button>
+
+<h2>🎮 Action Games</h2>
+
+<p>
+Fast action and adventure.
+</p>
+
+<button>
+Play
+</button>
+
 </div>
 
 <div class="card">
-<h2>🏎 Racing</h2>
-<p>Fast racing adventures.</p>
-<button>Open</button>
+
+<h2>🏎 Racing Games</h2>
+
+<p>
+Drive super fast cars.
+</p>
+
+<button>
+Play
+</button>
+
 </div>
 
 <div class="card">
-<h2>🔫 Action</h2>
-<p>Action packed games.</p>
-<button>Open</button>
+
+<h2>⚽ Sports Games</h2>
+
+<p>
+Football • Cricket • More
+</p>
+
+<button>
+Play
+</button>
+
 </div>
 
 <div class="card">
-<h2>🧩 Puzzle</h2>
-<p>Train your brain.</p>
-<button>Open</button>
+
+<h2>🧩 Puzzle Games</h2>
+
+<p>
+Challenge your brain.
+</p>
+
+<button>
+Play
+</button>
+
 </div>
 
 <div class="card">
-<h2>🏆 Leaderboard</h2>
-<p>Top gamers this week.</p>
-<button>View</button>
-</div>
 
-<div class="card">
 <h2>👤 Gamer Profile</h2>
-<p>Level • XP • Badges</p>
-<button>Profile</button>
+
+<p id="player">
+Player : Sujay
+</p>
+
+<p id="xp">
+⭐ XP : 0
+</p>
+
+<p id="level">
+🏆 Level : 1
+</p>
+
+<button>
+Profile
+</button>
+
 </div>
 
-</section>
+<div class="card">
 
-<!-- Daily Challenge -->
+<h2>🏆 Daily Challenge</h2>
 
-<section>
-
-<h2>🔥 Daily Challenge</h2>
-
-<div class="challenge">
-
-<p id="challengeText">
-
-Complete one game today and earn 100 XP!
-
+<p id="challenge">
+Complete today's challenge!
 </p>
 
 <button onclick="completeChallenge()">
-
-Claim Reward
-
+Claim XP
 </button>
 
 </div>
 
 </section>
 
-<!-- Gamer Dashboard -->
+<!-- Quote -->
 
 <section>
 
-<h2>🚀 Gamer Dashboard</h2>
+<h2>💬 Gamer Quote</h2>
 
-<h3 id="playerName">👤 Player : Sujay</h3>
+<h3 id="quote">
 
-<h3 id="xp">⭐ XP : 0</h3>
+🎮 Winners Never Quit!
 
-<h3 id="level">🏆 Level : 1</h3>
-
-</section>
-
-<!-- Gaming Quote -->
-
-<section>
-
-<h2>💬 Gaming Quote</h2>
-
-<h2 id="quote">
-
-🎮 Play Smart, Win Big!
-
-</h2>
+</h3>
 
 </section>
+
+<!-- Footer -->
 
 <footer>
 
 <h2>🎮 SUJAY GAMING HUB</h2>
 
-<p>Made By Sujay ❤️</p>
+<p>
+Made By Sujay ❤️
+</p>
 
 </footer>
 
 <script>
 
-/* PART C + D JAVASCRIPT HERE */
+/* ===== PART C + D JS HERE ===== */
 
 </script>
 
 </body>
-</html>/* ===================================
+</html>
+// ===============================
+// SUJAY GAMING HUB - PART C
+// ===============================
+
+// Live Clock
+function updateClock() {
+    const now = new Date();
+
+    const h = String(now.getHours()).padStart(2, "0");
+    const m = String(now.getMinutes()).padStart(2, "0");
+    const s = String(now.getSeconds()).padStart(2, "0");
+
+    document.getElementById("clock").innerHTML =
+        h + ":" + m + ":" + s;
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+
+
+// XP System
+
+let xp = 0;
+let level = 1;
+
+function completeChallenge(){
+
+    xp += 100;
+
+    if(xp >= level * 300){
+        level++;
+    }
+
+    document.getElementById("xp").innerHTML =
+        "⭐ XP : " + xp;
+
+    document.getElementById("level").innerHTML =
+        "🏆 Level : " + level;
+
+    document.getElementById("challenge").innerHTML =
+        "✅ Challenge Completed!";
+}
+
+
+// Search
+
+const search = document.getElementById("search");
+
+search.addEventListener("keyup", function(){
+
+    let value = search.value.toLowerCase();
+
+    document.querySelectorAll(".card").forEach(function(card){
+
+        if(card.innerText.toLowerCase().includes(value)){
+
+            card.style.display = "block";
+
+        }else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+});
+
+
+// Theme
+
+let dark = true;
+
+function changeTheme(){
+
+    if(dark){
+
+        document.body.style.background="#ffffff";
+        document.body.style.color="#111111";
+
+    }else{
+
+        document.body.style.background="#050505";
+        document.body.style.color="#ffffff";
+
+    }
+
+    dark = !dark;
+
+}
+
+
+// Share
+
+function shareSite(){
+
+    if(navigator.share){
+
+        navigator.share({
+
+            title:"SUJAY GAMING HUB",
+
+            text:"Check out my Gaming Website!",
+
+            url:location.href
+
+        });
+
+    }else{
+
+        alert(location.href);
+
+    }
+
+}
+
+
+// Music
+
+function playMusic(){
+
+    alert("🎵 Music feature coming soon!");
+
+}
+
+
+// Quotes
+
+const quotes=[
+
+"🎮 Winners Never Quit!",
+
+"🔥 Level Up Every Day!",
+
+"🏆 Be The Champion!",
+
+"⚡ Keep Grinding!",
+
+"💎 Play Like A Pro!",
+
+"🚀 Victory Is Yours!"
+
+];
+
+function randomQuote(){
+
+    let r=Math.floor(Math.random()*quotes.length);
+
+    document.getElementById("quote").innerHTML=quotes[r];
+
+}
+
+setInterval(randomQuote,5000);
+
+randomQuote();// ===============================
+// SUJAY GAMING HUB - PART C
+// ===============================
+
+// Live Clock
+function updateClock() {
+    const now = new Date();
+
+    const h = String(now.getHours()).padStart(2, "0");
+    const m = String(now.getMinutes()).padStart(2, "0");
+    const s = String(now.getSeconds()).padStart(2, "0");
+
+    document.getElementById("clock").innerHTML =
+        h + ":" + m + ":" + s;
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+
+
+// XP System
+
+let xp = 0;
+let level = 1;
+
+function completeChallenge(){
+
+    xp += 100;
+
+    if(xp >= level * 300){
+        level++;
+    }
+
+    document.getElementById("xp").innerHTML =
+        "⭐ XP : " + xp;
+
+    document.getElementById("level").innerHTML =
+        "🏆 Level : " + level;
+
+    document.getElementById("challenge").innerHTML =
+        "✅ Challenge Completed!";
+}
+
+
+// Search
+
+const search = document.getElementById("search");
+
+search.addEventListener("keyup", function(){
+
+    let value = search.value.toLowerCase();
+
+    document.querySelectorAll(".card").forEach(function(card){
+
+        if(card.innerText.toLowerCase().includes(value)){
+
+            card.style.display = "block";
+
+        }else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+});
+
+
+// Theme
+
+let dark = true;
+
+function changeTheme(){
+
+    if(dark){
+
+        document.body.style.background="#ffffff";
+        document.body.style.color="#111111";
+
+    }else{
+
+        document.body.style.background="#050505";
+        document.body.style.color="#ffffff";
+
+    }
+
+    dark = !dark;
+
+}
+
+
+// Share
+
+function shareSite(){
+
+    if(navigator.share){
+
+        navigator.share({
+
+            title:"SUJAY GAMING HUB",
+
+            text:"Check out my Gaming Website!",
+
+            url:location.href
+
+        });
+
+    }else{
+
+        alert(location.href);
+
+    }
+
+}
+
+
+// Music
+
+function playMusic(){
+
+    alert("🎵 Music feature coming soon!");
+
+}
+
+
+// Quotes
+
+const quotes=[
+
+"🎮 Winners Never Quit!",
+
+"🔥 Level Up Every Day!",
+
+"🏆 Be The Champion!",
+
+"⚡ Keep Grinding!",
+
+"💎 Play Like A Pro!",
+
+"🚀 Victory Is Yours!"
+
+];
+
+function randomQuote(){
+
+    let r=Math.floor(Math.random()*quotes.length);
+
+    document.getElementById("quote").innerHTML=quotes[r];
+
+}
+
+setInterval(randomQuote,5000);
+
+randomQuote();
+/* ===================================
    SUJAY GAMING HUB - PART B
+   Crazy RGB Gaming CSS
 =================================== */
 
 *{
@@ -176,6 +550,7 @@ body{
 background:#050505;
 color:#fff;
 overflow-x:hidden;
+transition:.5s;
 }
 
 /* Animated RGB Background */
@@ -187,7 +562,7 @@ height:350px;
 border-radius:50%;
 filter:blur(100px);
 z-index:-1;
-animation:move 8s infinite alternate;
+animation:float 8s infinite alternate;
 }
 
 .bg1{
@@ -208,51 +583,100 @@ bottom:-100px;
 left:35%;
 }
 
-@keyframes move{
-from{
-transform:translateY(0) scale(1);
-}
-to{
-transform:translateY(120px) scale(1.2);
-}
+@keyframes float{
+from{transform:translateY(0) scale(1);}
+to{transform:translateY(120px) scale(1.2);}
 }
 
-/* Header */
+/* Loader */
 
-header{
+#loader{
+position:fixed;
+inset:0;
+background:#000;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:9999;
+color:white;
+}
+
+#loader h1{
+font-size:50px;
+color:#00ffff;
+text-shadow:0 0 20px cyan;
+}
+
+/* Navigation */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+position:sticky;
+top:0;
+z-index:100;
+}
+
+nav h1{
+color:#00ffff;
+text-shadow:0 0 15px cyan;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:25px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+nav a:hover{
+color:#00ffff;
+text-shadow:0 0 10px cyan;
+}
+
+/* Hero */
+
+.hero{
 text-align:center;
-padding:60px 20px;
+padding:80px 20px;
 }
 
-header h1{
-font-size:60px;
+.hero h1{
+font-size:70px;
 color:#00ffff;
 text-shadow:
-0 0 10px #00ffff,
-0 0 25px #00ffff,
-0 0 50px #ff00ff;
+0 0 10px cyan,
+0 0 25px cyan,
+0 0 50px magenta;
 }
 
-header p{
-font-size:22px;
+.hero p{
+font-size:24px;
+margin-top:15px;
 color:#ddd;
-margin-top:10px;
 }
-
-/* Clock */
 
 #clock{
-margin:20px auto;
-width:220px;
+margin:25px auto;
+width:230px;
 padding:15px;
 border-radius:20px;
-font-size:30px;
+font-size:32px;
 background:rgba(255,255,255,.1);
 backdrop-filter:blur(12px);
 box-shadow:0 0 20px cyan;
 }
-
-/* Search */
 
 #search{
 width:80%;
@@ -271,11 +695,11 @@ font-size:18px;
 
 button{
 padding:14px 30px;
-margin:10px;
+margin:12px;
 border:none;
 border-radius:30px;
 cursor:pointer;
-font-size:17px;
+font-size:16px;
 font-weight:bold;
 background:linear-gradient(45deg,#00ffff,#ff00ff);
 color:white;
@@ -335,37 +759,21 @@ text-align:center;
 }
 
 section h2{
-font-size:38px;
+font-size:40px;
 margin-bottom:25px;
 color:#00ffff;
 }
 
-/* Challenge */
-
-.challenge{
-max-width:600px;
-margin:auto;
-padding:30px;
-border-radius:20px;
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(15px);
-}
-
-/* Dashboard */
-
-#xp,
-#level,
-#playerName,
 #quote{
-margin:15px;
-font-size:28px;
+font-size:30px;
 color:#00ff99;
+text-shadow:0 0 10px #00ff99;
 }
 
 /* Footer */
 
 footer{
-margin-top:50px;
+margin-top:60px;
 padding:30px;
 text-align:center;
 background:#000;
@@ -376,8 +784,18 @@ color:#bbb;
 
 @media(max-width:768px){
 
-header h1{
-font-size:38px;
+nav{
+flex-direction:column;
+gap:15px;
+}
+
+nav ul{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.hero h1{
+font-size:42px;
 }
 
 .cards{
@@ -396,279 +814,5 @@ width:95%;
 button{
 width:90%;
 }
-}// ===================================
-// SUJAY GAMING HUB - PART C
-// ===================================
-
-// Live Clock
-function updateClock() {
-    let now = new Date();
-
-    let h = String(now.getHours()).padStart(2, "0");
-    let m = String(now.getMinutes()).padStart(2, "0");
-    let s = String(now.getSeconds()).padStart(2, "0");
-
-    document.getElementById("clock").innerHTML =
-        h + ":" + m + ":" + s;
-}
-
-setInterval(updateClock, 1000);
-updateClock();
-
-
-// XP System
-
-let xp = 0;
-let level = 1;
-
-function completeChallenge() {
-
-    xp += 100;
-
-    if (xp >= level * 200) {
-        level++;
-    }
-
-    document.getElementById("xp").innerHTML =
-        "⭐ XP : " + xp;
-
-    document.getElementById("level").innerHTML =
-        "🏆 Level : " + level;
-
-    document.getElementById("challengeText").innerHTML =
-        "✅ Reward Claimed!";
-}
-
-
-// Search
-
-document.getElementById("search").addEventListener("keyup", function () {
-
-    let value = this.value.toLowerCase();
-
-    document.querySelectorAll(".card").forEach(function(card){
-
-        if(card.innerText.toLowerCase().includes(value)){
-            card.style.display="block";
-        }else{
-            card.style.display="none";
-        }
-
-    });
-
-});
-
-
-// Share
-
-function shareSite(){
-
-    if(navigator.share){
-
-        navigator.share({
-            title:"SUJAY GAMING HUB",
-            text:"Play amazing games!",
-            url:window.location.href
-        });
-
-    }else{
-
-        alert("Website Link:\n" + window.location.href);
-
-    }
 
 }
-
-
-// Theme
-
-let dark = true;
-
-function changeTheme(){
-
-    if(dark){
-
-        document.body.style.background="#ffffff";
-        document.body.style.color="#000000";
-
-    }else{
-
-        document.body.style.background="#050505";
-        document.body.style.color="#ffffff";
-
-    }
-
-    dark = !dark;
-
-}
-
-
-// Music Button
-
-function playMusic(){
-
-    alert("🎵 Background Music Feature Coming Soon!");
-
-}
-
-
-// Gaming Quotes
-
-let quotes=[
-
-"🎮 Play Smart!",
-"🏆 Winners Never Quit!",
-"🔥 Every Game Is A New Adventure!",
-"⚡ Never Stop Gaming!",
-"💎 Level Up Every Day!",
-"🚀 Victory Loves Preparation!"
-
-];
-
-function changeQuote(){
-
-    let random=Math.floor(Math.random()*quotes.length);
-
-    document.getElementById("quote").innerHTML=
-        quotes[random];
-
-}
-
-setInterval(changeQuote,4000);
-changeQuote();// ===================================
-// SUJAY GAMING HUB - PART D
-// Premium Effects
-// ===================================
-
-// Loading Screen
-window.addEventListener("load", function () {
-
-    setTimeout(function () {
-
-        document.getElementById("loader").style.display = "none";
-
-    }, 2000);
-
-});
-
-
-// Welcome Message
-setTimeout(function () {
-
-    alert("🎮 Welcome to SUJAY GAMING HUB!");
-
-}, 2200);
-
-
-// Card Animation
-let cards = document.querySelectorAll(".card");
-
-cards.forEach(function(card){
-
-    card.addEventListener("mouseenter", function(){
-
-        card.style.transform = "scale(1.08) rotate(1deg)";
-        card.style.boxShadow = "0 0 35px cyan";
-
-    });
-
-    card.addEventListener("mouseleave", function(){
-
-        card.style.transform = "scale(1)";
-        card.style.boxShadow = "";
-
-    });
-
-});
-
-
-// Random Background Glow
-let colors = [
-
-"#ff00ff",
-"#00ffff",
-"#00ff66",
-"#ff3300",
-"#ffff00",
-"#0099ff"
-
-];
-
-setInterval(function(){
-
-    let random = Math.floor(Math.random()*colors.length);
-
-    document.body.style.boxShadow =
-    "inset 0 0 120px " + colors[random];
-
-},3000);
-
-
-// Button Click Effect
-document.querySelectorAll("button").forEach(function(btn){
-
-    btn.addEventListener("click",function(){
-
-        btn.style.transform="scale(0.92)";
-
-        setTimeout(function(){
-
-            btn.style.transform="scale(1)";
-
-        },150);
-
-    });
-
-});
-
-
-// Fake Gamer Level Notification
-setInterval(function(){
-
-    let randomXP=Math.floor(Math.random()*20)+5;
-
-    xp += randomXP;
-
-    if(xp >= level*200){
-
-        level++;
-
-        alert("🏆 Level Up! You reached Level " + level);
-
-    }
-
-    document.getElementById("xp").innerHTML =
-    "⭐ XP : " + xp;
-
-    document.getElementById("level").innerHTML =
-    "🏆 Level : " + level;
-
-},15000);
-
-
-// Keyboard Shortcut
-document.addEventListener("keydown",function(e){
-
-    if(e.key==="g" || e.key==="G"){
-
-        alert("🎮 Gaming Mode Activated!");
-
-    }
-
-});
-
-
-// Footer Year
-let footer = document.querySelector("footer p");
-
-footer.innerHTML =
-"Made By Sujay ❤️ | " +
-new Date().getFullYear();
-
-
-// Console Message
-console.log("🚀 SUJAY GAMING HUB Loaded Successfully!");
-
-
-// Finished
-console.log("✅ Ultra Gaming Website Ready!");
